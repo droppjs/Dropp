@@ -15,15 +15,15 @@ Think of it as your media department in a box: upload files, transform them, sto
 
 ## Monorepo map
 
-- `packages/core` — orchestration engine and attach/get/delete workflows
-- `packages/cli` — `dropp` command-line interface
-- `packages/db/*` — ORM repository adapters
-- `packages/storage/*` — storage drivers
-- `packages/transformer/*` — media transformation drivers
-- `packages/queue/bullmq` — async processing queue adapter
-- `packages/plugins/*` — plugin ecosystem
-- `packages/types` — shared contracts and domain types
-- `packages/config` — config schema and loading utilities
+- `packages/core` - orchestration engine and attach/get/delete workflows
+- `packages/cli` - `dropp` command-line interface
+- `packages/db/*` - ORM repository adapters
+- `packages/storage/*` - storage drivers
+- `packages/transformer/*` - media transformation drivers
+- `packages/queue/bullmq` - async processing queue adapter
+- `packages/plugins/*` - plugin ecosystem
+- `packages/types` - shared contracts and domain types
+- `packages/config` - config schema and loading utilities
 
 ## Fast start
 
@@ -60,7 +60,7 @@ Ready-to-use examples live in:
 
 ## Built-in plugins
 
-- Watermark — brand overlays and text watermarking
+- Watermark - brand overlays and text watermarking
 - AI Tagging — automatic tag generation
 - SEO — alt text and metadata helpers
 

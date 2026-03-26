@@ -1,17 +1,6 @@
-# Plugin Development Guide
+# Plugin Guide
 
-Plugins let you add custom behavior without touching core code.
-
-If Dropp is the engine, plugins are the safe upgrades.
-
-## Plugin lifecycle hooks
-
-- `beforeUpload`
-- `afterUpload`
-- `beforeDelete`
-- `afterDelete`
-
-Use these to validate, enrich metadata, or trigger side effects.
+Plugins let you add custom behavior to Dropp without editing core code.
 
 ## Built-in plugins
 
@@ -19,21 +8,22 @@ Use these to validate, enrich metadata, or trigger side effects.
 - AI Tagging
 - SEO
 
-## Plugin commands
+## Manage plugins from CLI
 
 - `dropp plugin:install <name>`
 - `dropp plugin:list`
 - `dropp plugin:remove <name>`
 
-## Authoring workflow
+## Lifecycle hooks
 
-1. Create a new package under `packages/plugins/`
-2. Implement the plugin interface from plugins core
-3. Keep scope small (one job per plugin)
-4. Keep hooks fast and predictable
-5. Register plugin config in `dropp.config.json`
+- `beforeUpload`
+- `afterUpload`
+- `beforeDelete`
+- `afterDelete`
 
-## Configuration example
+Use hooks to validate inputs, enrich metadata, or trigger side effects.
+
+## Config example
 
 ```json
 {
@@ -50,15 +40,13 @@ Use these to validate, enrich metadata, or trigger side effects.
 }
 ```
 
-## Good plugin behavior checklist
+## Best practices
 
-- Fail loudly on invalid config
-- Avoid slow network calls in upload-critical hooks
-- Keep output deterministic
-- Log enough to debug, not enough to become a podcast
+- Keep plugins focused on one clear responsibility
+- Validate config on startup
+- Keep upload-path hooks fast
+- Fail with clear error messages
 
-## Where to learn more
+## More details
 
-- [../packages/plugins/core/PLUGIN_GUIDE.md](../packages/plugins/core/PLUGIN_GUIDE.md)
-- [ADAPTERS.md](ADAPTERS.md)
-- [ORM_GUIDE.md](ORM_GUIDE.md)
+- Core plugin docs: [../packages/plugins/core/PLUGIN_GUIDE.md](../packages/plugins/core/PLUGIN_GUIDE.md)
