@@ -17,7 +17,10 @@ concurrency:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_KEY }}
+      NPM_CONFIG_ALWAYS_AUTH: "true"
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -30,10 +33,54 @@ jobs:
         with:
           node-version: 20
           registry-url: https://registry.npmjs.org
+          scope: "@droppjs"
+          always-auth: true
           cache: pnpm
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+      - name: Configure npm authentication for all steps
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
+          echo "always-auth=true" >> ~/.npmrc
+          echo "@droppjs:registry=https://registry.npmjs.org/" >> ~/.npmrc
+
+      - name: Verify npm auth
+        run: npm whoami
+
+      - name: Fetch dependencies (with retry)
+        run: |
+          ATTEMPTS=4
+          for attempt in $(seq 1 "$ATTEMPTS"); do
+            echo "Dependency fetch attempt ${attempt}/${ATTEMPTS}"
+
+            set +e
+            OUTPUT=$(pnpm fetch --frozen-lockfile 2>&1)
+            STATUS=$?
+            set -e
+
+            echo "$OUTPUT"
+
+            if [ "$STATUS" -eq 0 ]; then
+              echo "Dependency fetch succeeded."
+              exit 0
+            fi
+
+            if echo "$OUTPUT" | grep -Eqi "E429|429 Too Many Requests|EAI_AGAIN|ETIMEDOUT|ECONNRESET|5[0-9]{2}"; then
+              if [ "$attempt" -lt "$ATTEMPTS" ]; then
+                BASE=$((30 * (2 ** (attempt - 1))))
+                EXTRA=$((RANDOM % 20))
+                WAIT=$((BASE + EXTRA))
+                echo "Transient registry error while fetching deps. Retrying in ${WAIT}s..."
+                sleep "$WAIT"
+                continue
+              fi
+            fi
+
+            echo "Dependency fetch failed with a non-retriable error."
+            exit "$STATUS"
+          done
+
+      - name: Install dependencies (offline)
+        run: pnpm install --frozen-lockfile --offline
 
       - name: Build
         run: pnpm build
@@ -49,18 +96,7 @@ jobs:
           cd packages/cli
           npm pack --dry-run
 
-      - name: Authenticate npm
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_KEY }}
-        run: |
-          echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
-          echo "always-auth=true" >> ~/.npmrc
-          npm whoami
-          npm ping
-
       - name: Publish @droppjs/cli
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_KEY }}
         run: |
           cd packages/cli
 
@@ -77,7 +113,7 @@ jobs:
           echo "Initial jitter: ${JITTER}s"
           sleep "$JITTER"
 
-          ATTEMPTS=5
+          ATTEMPTS=4
           for attempt in $(seq 1 "$ATTEMPTS"); do
             echo "Publish attempt ${attempt}/${ATTEMPTS}"
 
@@ -95,9 +131,9 @@ jobs:
 
             if echo "$OUTPUT" | grep -Eqi "E429|429 Too Many Requests|EAI_AGAIN|ETIMEDOUT|ECONNRESET|5[0-9]{2}"; then
               if [ "$attempt" -lt "$ATTEMPTS" ]; then
-                # Exponential backoff with jitter: 2m, 4m, 8m, 16m (+0-59s)
-                BASE=$((120 * (2 ** (attempt - 1))))
-                EXTRA=$((RANDOM % 60))
+                # Exponential backoff with jitter: 1m, 2m, 4m (+0-30s)
+                BASE=$((60 * (2 ** (attempt - 1))))
+                EXTRA=$((RANDOM % 30))
                 WAIT=$((BASE + EXTRA))
                 echo "Transient npm error detected. Retrying in ${WAIT}s..."
                 sleep "$WAIT"
