@@ -61,7 +61,7 @@ Ready-to-use examples live in:
 ## Built-in plugins
 
 - Watermark - brand overlays and text watermarking
-- AI Tagging — automatic tag generation
-- SEO — alt text and metadata helpers
+- AI Tagging - automatic tag generation
+- SEO - alt text and metadata helpers
 
 See [docs/PLUGIN_GUIDE.md](docs/PLUGIN_GUIDE.md) for plugin authoring and lifecycle hooks.
