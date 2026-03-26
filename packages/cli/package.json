@@ -18,11 +18,13 @@
     "manifest": "oclif manifest .",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "dev": "tsx src/index.ts",
-    "clean": "rimraf dist oclif.manifest.json"
+    "clean": "rimraf dist oclif.manifest.json node_modules/@droppjs",
+    "prepack": "node ./scripts/prepare-standalone.mjs"
   },
   "dependencies": {
     "@droppjs/config": "workspace:*",
     "@droppjs/core": "workspace:*",
+    "@droppjs/plugins-core": "workspace:*",
     "@droppjs/storage-azure": "workspace:*",
     "@droppjs/storage-gcs": "workspace:*",
     "@droppjs/storage-local": "workspace:*",
@@ -35,6 +37,19 @@
     "chalk": "^5.4.1",
     "mime-types": "^2.1.35"
   },
+  "bundledDependencies": [
+    "@droppjs/config",
+    "@droppjs/core",
+    "@droppjs/plugins-core",
+    "@droppjs/storage-azure",
+    "@droppjs/storage-gcs",
+    "@droppjs/storage-local",
+    "@droppjs/storage-r2",
+    "@droppjs/storage-s3",
+    "@droppjs/transformer-image",
+    "@droppjs/transformer-video",
+    "@droppjs/types"
+  ],
   "devDependencies": {
     "@types/mime-types": "^2.1.4",
     "oclif": "^4.17.36",
