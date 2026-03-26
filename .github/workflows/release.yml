@@ -39,9 +39,11 @@ jobs:
 
       - name: Configure npm authentication for all steps
         run: |
-          echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
-          echo "always-auth=true" >> ~/.npmrc
-          echo "@droppjs:registry=https://registry.npmjs.org/" >> ~/.npmrc
+          NPMRC_PATH="${NPM_CONFIG_USERCONFIG:-$HOME/.npmrc}"
+          echo "Using npm config: ${NPMRC_PATH}"
+          echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > "${NPMRC_PATH}"
+          echo "always-auth=true" >> "${NPMRC_PATH}"
+          echo "@droppjs:registry=https://registry.npmjs.org/" >> "${NPMRC_PATH}"
 
       - name: Verify npm auth
         run: npm whoami
@@ -113,12 +115,16 @@ jobs:
           echo "Initial jitter: ${JITTER}s"
           sleep "$JITTER"
 
+          # Pack once so retries do not rerun prepack and reduce repeated work.
+          TARBALL=$(npm pack --json --silent | node -e "const fs=require('fs'); const out=JSON.parse(fs.readFileSync(0,'utf8')); console.log(out[0].filename)")
+          echo "Prepared tarball: ${TARBALL}"
+
           ATTEMPTS=4
           for attempt in $(seq 1 "$ATTEMPTS"); do
             echo "Publish attempt ${attempt}/${ATTEMPTS}"
 
             set +e
-            OUTPUT=$(npm publish --access public --provenance 2>&1)
+            OUTPUT=$(npm publish "${TARBALL}" --access public --provenance --ignore-scripts 2>&1)
             STATUS=$?
             set -e
 
