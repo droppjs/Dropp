@@ -63,4 +63,37 @@ jobs:
           echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
           echo "always-auth=true" >> ~/.npmrc
           npm whoami
-          npm publish --access public --provenance
+
+          VERSION=$(node -p "require('./package.json').version")
+          if npm view "@droppjs/cli@${VERSION}" version >/dev/null 2>&1; then
+            echo "@droppjs/cli@${VERSION} is already published. Skipping publish."
+            exit 0
+          fi
+
+          ATTEMPTS=3
+          for attempt in $(seq 1 $ATTEMPTS); do
+            echo "Publish attempt ${attempt}/${ATTEMPTS}"
+            set +e
+            OUTPUT=$(npm publish --access public --provenance 2>&1)
+            STATUS=$?
+            set -e
+
+            echo "$OUTPUT"
+
+            if [ $STATUS -eq 0 ]; then
+              echo "Publish succeeded."
+              exit 0
+            fi
+
+            if echo "$OUTPUT" | grep -q "E429"; then
+              if [ "$attempt" -lt "$ATTEMPTS" ]; then
+                SLEEP_SECONDS=$((attempt * 120))
+                echo "Rate limited by npm. Retrying in ${SLEEP_SECONDS}s..."
+                sleep "$SLEEP_SECONDS"
+                continue
+              fi
+            fi
+
+            echo "Publish failed with a non-retriable error."
+            exit $STATUS
+          done
