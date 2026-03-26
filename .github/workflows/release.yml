@@ -96,7 +96,10 @@ jobs:
       - name: Validate standalone CLI package
         run: |
           cd packages/cli
-          PACK_META=$(npm pack --json --dry-run)
+
+          # Run prepack once explicitly, then collect clean JSON pack metadata.
+          pnpm run prepack
+          PACK_META=$(npm pack --json --dry-run --ignore-scripts)
           echo "$PACK_META"
 
           FILE_COUNT=$(echo "$PACK_META" | node -e "const d=JSON.parse(require('fs').readFileSync(0,'utf8')); const x=Array.isArray(d)?d[0]:d; console.log(x.entryCount ?? 0)")
