@@ -1,0 +1,21 @@
+{
+  "name": "dropp",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Ribal Arshad",
+  "description": "Enterprise, framework-agnostic media management ecosystem for Node.js",
+  "packageManager": "pnpm@10.0.0",
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "test": "turbo run test",
+    "test:adapters": "pnpm build && node --test tests/adapters/*.integration.test.mjs",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean",
+    "typecheck": "turbo run typecheck"
+  },
+  "devDependencies": {
+    "turbo": "^2.1.1",
+    "typescript": "^5.6.3"
+  }
+}

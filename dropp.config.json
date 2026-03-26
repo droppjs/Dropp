@@ -1,0 +1,37 @@
+{
+  "orm": {
+    "driver": "drizzle",
+    "repository": {
+      "module": "./dropp.repository.js",
+      "exportName": "mediaRepository"
+    }
+  },
+  "storage": {
+    "driver": "local",
+    "local": {
+      "baseDir": "media",
+      "baseUrl": "/media"
+    }
+  },
+  "queue": {
+    "enabled": false
+  },
+  "plugins": {
+    "watermark": {
+      "enabled": true,
+      "config": {
+        "text": "© My Brand",
+        "position": "bottomRight",
+        "opacity": 0.7
+      }
+    },
+    "seo": {
+      "enabled": true,
+      "config": {
+        "generateAltText": true,
+        "generateDescription": true,
+        "addImageSitemap": true
+      }
+    }
+  }
+}

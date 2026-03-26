@@ -1,0 +1,50 @@
+{
+  "name": "@dropp/cli",
+  "version": "0.1.0",
+  "type": "module",
+  "author": "Ribal Arshad",
+  "bin": {
+    "dropp": "./bin/run.js"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "bin",
+    "dist",
+    "oclif.manifest.json"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json && pnpm run manifest",
+    "manifest": "oclif manifest .",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "dev": "tsx src/index.ts",
+    "clean": "rimraf dist oclif.manifest.json"
+  },
+  "dependencies": {
+    "@dropp/config": "workspace:*",
+    "@dropp/core": "workspace:*",
+    "@dropp/storage-azure": "workspace:*",
+    "@dropp/storage-gcs": "workspace:*",
+    "@dropp/storage-local": "workspace:*",
+    "@dropp/storage-r2": "workspace:*",
+    "@dropp/storage-s3": "workspace:*",
+    "@dropp/transformer-image": "workspace:*",
+    "@dropp/transformer-video": "workspace:*",
+    "@dropp/types": "workspace:*",
+    "@oclif/core": "^4.0.29",
+    "chalk": "^5.4.1",
+    "mime-types": "^2.1.35"
+  },
+  "devDependencies": {
+    "@types/mime-types": "^2.1.4",
+    "oclif": "^4.17.36",
+    "rimraf": "^6.0.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "@types/node": "^22.10.0"
+  },
+  "oclif": {
+    "bin": "dropp",
+    "commands": "./dist/commands"
+  }
+}
