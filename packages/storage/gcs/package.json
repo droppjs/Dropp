@@ -1,5 +1,5 @@
 {
-  "name": "@usedropp/storage-gcs",
+  "name": "@droppjs/storage-gcs",
   "version": "0.1.0",
   "author": "Ribal Arshad",
   "type": "module",
@@ -14,7 +14,7 @@
     "dev": "tsc -p tsconfig.json --watch"
   },
   "dependencies": {
-    "@usedropp/core": "workspace:*",
+    "@droppjs/core": "workspace:*",
     "@google-cloud/storage": "^7.14.0"
   },
   "devDependencies": {

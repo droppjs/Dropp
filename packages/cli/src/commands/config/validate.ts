@@ -1,5 +1,5 @@
 import { Command, Flags } from "@oclif/core";
-import { loadConfig } from "@usedropp/config";
+import { loadConfig } from "@droppjs/config";
 
 export default class ConfigValidate extends Command {
   static override description =

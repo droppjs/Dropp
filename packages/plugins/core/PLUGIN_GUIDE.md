@@ -55,7 +55,7 @@ export interface PluginContext {
 Plugins are managed through the `PluginRegistry`:
 
 ```typescript
-import { PluginRegistry } from "@usedropp/plugins-core";
+import { PluginRegistry } from "@droppjs/plugins-core";
 
 const registry = new PluginRegistry();
 registry.register(plugin, config, enabled);
@@ -68,13 +68,13 @@ registry.executeHook("beforeUpload", context);
 
 Add visual watermarks to images.
 
-**Package:** `@usedropp/plugin-watermark`
+**Package:** `@droppjs/plugin-watermark`
 
 **Installation:**
 
 ```bash
 dropp plugin:install watermark
-pnpm add @usedropp/plugin-watermark
+pnpm add @droppjs/plugin-watermark
 ```
 
 **Configuration:**
@@ -106,13 +106,13 @@ pnpm add @usedropp/plugin-watermark
 
 Automatically tag media using AI vision services.
 
-**Package:** `@usedropp/plugin-ai-tagging`
+**Package:** `@droppjs/plugin-ai-tagging`
 
 **Installation:**
 
 ```bash
 dropp plugin:install ai-tagging
-pnpm add @usedropp/plugin-ai-tagging
+pnpm add @droppjs/plugin-ai-tagging
 ```
 
 **Configuration:**
@@ -144,13 +144,13 @@ pnpm add @usedropp/plugin-ai-tagging
 
 Generate SEO-friendly metadata for images.
 
-**Package:** `@usedropp/plugin-seo`
+**Package:** `@droppjs/plugin-seo`
 
 **Installation:**
 
 ```bash
 dropp plugin:install seo
-pnpm add @usedropp/plugin-seo
+pnpm add @droppjs/plugin-seo
 ```
 
 **Configuration:**
@@ -210,7 +210,7 @@ dropp plugin:remove <name>
 ### 1. Implement the MediaPlugin Interface
 
 ```typescript
-import type { MediaPlugin, PluginContext } from "@usedropp/plugins-core";
+import type { MediaPlugin, PluginContext } from "@droppjs/plugins-core";
 
 export class MyPlugin implements MediaPlugin {
   name = "my-plugin";
@@ -241,7 +241,7 @@ export default MyPlugin;
 ### 2. Register in Code
 
 ```typescript
-import { PluginRegistry } from "@usedropp/plugins-core";
+import { PluginRegistry } from "@droppjs/plugins-core";
 import { MyPlugin } from "./MyPlugin";
 
 const registry = new PluginRegistry();
@@ -256,13 +256,13 @@ registry.register(plugin, {
 
 ```typescript
 import dropp from "dropp.config.json";
-import { PluginRegistry } from "@usedropp/plugins-core";
+import { PluginRegistry } from "@droppjs/plugins-core";
 
 const registry = new PluginRegistry();
 
 for (const [name, settings] of Object.entries(dropp.plugins ?? {})) {
   if (settings.enabled) {
-    const PluginClass = await import(`@usedropp/plugin-${name}`);
+    const PluginClass = await import(`@droppjs/plugin-${name}`);
     const plugin = new PluginClass.default();
     await plugin.validate?.(settings.config ?? {});
     registry.register(plugin, settings.config ?? {});
@@ -354,10 +354,10 @@ try {
 
 To publish a custom plugin as an npm package:
 
-1. Create package with `@usedropp/plugin-*` naming
+1. Create package with `@droppjs/plugin-*` naming
 2. Implement `MediaPlugin` interface
 3. Export plugin class as default
-4. Add to `@usedropp/plugins-core` peerDependency
+4. Add to `@droppjs/plugins-core` peerDependency
 5. Publish to npm registry
 
 Users can then install with:

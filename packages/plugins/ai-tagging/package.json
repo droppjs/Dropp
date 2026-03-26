@@ -1,5 +1,5 @@
 {
-  "name": "@usedropp/plugin-ai-tagging",
+  "name": "@droppjs/plugin-ai-tagging",
   "version": "1.0.0",
   "author": "Ribal Arshad",
   "description": "AI tagging plugin for Dropp media management",
@@ -20,8 +20,8 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@usedropp/plugins-core": "workspace:*",
-    "@usedropp/types": "workspace:*",
+    "@droppjs/plugins-core": "workspace:*",
+    "@droppjs/types": "workspace:*",
     "openai": "^4.52.0"
   },
   "devDependencies": {

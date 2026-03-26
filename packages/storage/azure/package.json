@@ -1,5 +1,5 @@
 {
-  "name": "@usedropp/storage-azure",
+  "name": "@droppjs/storage-azure",
   "version": "0.1.0",
   "author": "Ribal Arshad",
   "type": "module",
@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@azure/storage-blob": "^12.26.0",
-    "@usedropp/core": "workspace:*"
+    "@droppjs/core": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.6.3"

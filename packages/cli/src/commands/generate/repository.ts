@@ -2,7 +2,7 @@ import { Args, Command, Flags } from "@oclif/core";
 import { access, readFile, writeFile } from "node:fs/promises";
 import { constants } from "node:fs";
 import { join } from "node:path";
-import type { DroppConfig } from "@usedropp/types";
+import type { DroppConfig } from "@droppjs/types";
 
 const ORM_OPTIONS = [
   "prisma",
@@ -18,7 +18,7 @@ type SupportedOrm = (typeof ORM_OPTIONS)[number];
 
 const TEMPLATE_MAP: Record<SupportedOrm, string> = {
   prisma: `import { PrismaClient } from "@prisma/client";
-import { PrismaMediaRepository } from "@usedropp/db-prisma";
+import { PrismaMediaRepository } from "@droppjs/db-prisma";
 
 const prisma = new PrismaClient();
 
@@ -27,7 +27,7 @@ export const mediaRepository = async () => {
 };
 `,
   typeorm: `import { DataSource } from "typeorm";
-import { TypeOrmMediaRepository } from "@usedropp/db-typeorm";
+import { TypeOrmMediaRepository } from "@droppjs/db-typeorm";
 
 // Replace this with your actual Media entity class
 import { MediaEntity } from "./entities/MediaEntity.js";
@@ -54,7 +54,7 @@ export const mediaRepository = async () => {
 `,
   drizzle: `import { Pool } from "pg";
 import { drizzle } from "drizzle-orm/node-postgres";
-import { DrizzleMediaRepository } from "@usedropp/db-drizzle";
+import { DrizzleMediaRepository } from "@droppjs/db-drizzle";
 
 // Replace this with your actual Drizzle media table object
 import { mediaTable } from "./schema.js";
@@ -70,7 +70,7 @@ export const mediaRepository = async () => {
 };
 `,
   sequelize: `import { Sequelize } from "sequelize";
-import { SequelizeMediaRepository } from "@usedropp/db-sequelize";
+import { SequelizeMediaRepository } from "@droppjs/db-sequelize";
 
 // Replace this with your Sequelize model
 import { MediaModel } from "./models/MediaModel.js";
@@ -86,7 +86,7 @@ export const mediaRepository = async () => {
 };
 `,
   mikroorm: `import { MikroORM } from "@mikro-orm/core";
-import { MikroOrmMediaRepository } from "@usedropp/db-mikroorm";
+import { MikroOrmMediaRepository } from "@droppjs/db-mikroorm";
 
 // Replace this with your MikroORM entity
 import { MediaEntity } from "./entities/MediaEntity.js";
@@ -117,7 +117,7 @@ export const mediaRepository = async () => {
 };
 `,
   mongoose: `import mongoose from "mongoose";
-import { MongooseMediaRepository } from "@usedropp/db-mongoose";
+import { MongooseMediaRepository } from "@droppjs/db-mongoose";
 
 // Replace this with your Mongoose model
 import { MediaModel } from "./models/MediaModel.js";
@@ -141,7 +141,7 @@ export const mediaRepository = async () => {
 `,
   kysely: `import { Kysely, PostgresDialect } from "kysely";
 import { Pool } from "pg";
-import { KyselyMediaRepository } from "@usedropp/db-kysely";
+import { KyselyMediaRepository } from "@droppjs/db-kysely";
 
 const db = new Kysely({
   dialect: new PostgresDialect({

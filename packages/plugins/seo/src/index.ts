@@ -1,4 +1,4 @@
-import type { MediaPlugin, PluginContext } from "@usedropp/plugins-core";
+import type { MediaPlugin, PluginContext } from "@droppjs/plugins-core";
 
 /**
  * SEO plugin configuration

@@ -1,5 +1,5 @@
 {
-  "name": "@usedropp/transformer-video",
+  "name": "@droppjs/transformer-video",
   "version": "0.1.0",
   "author": "Ribal Arshad",
   "type": "module",
@@ -13,7 +13,7 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@usedropp/core": "workspace:*",
+    "@droppjs/core": "workspace:*",
     "ffmpeg-static": "^5.2.0",
     "fluent-ffmpeg": "^2.1.3"
   },

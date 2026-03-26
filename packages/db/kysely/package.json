@@ -1,5 +1,5 @@
 {
-  "name": "@usedropp/db-kysely",
+  "name": "@droppjs/db-kysely",
   "version": "0.1.0",
   "author": "Ribal Arshad",
   "type": "module",
@@ -13,8 +13,8 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@usedropp/core": "workspace:*",
-    "@usedropp/types": "workspace:*"
+    "@droppjs/core": "workspace:*",
+    "@droppjs/types": "workspace:*"
   },
   "peerDependencies": {
     "kysely": "^0.27.0"

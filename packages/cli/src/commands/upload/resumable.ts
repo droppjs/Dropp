@@ -4,8 +4,8 @@ import { constants } from "node:fs";
 import { basename, join } from "node:path";
 import { lookup as mimeLookup } from "mime-types";
 import { createHash } from "node:crypto";
-import { loadConfig } from "@usedropp/config";
-import { Dropp } from "@usedropp/core";
+import { loadConfig } from "@droppjs/config";
+import { Dropp } from "@droppjs/core";
 import { resolveRepository } from "../../utils/repository.js";
 import { createStorageDriver } from "../../utils/storage.js";
 

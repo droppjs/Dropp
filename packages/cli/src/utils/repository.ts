@@ -1,7 +1,7 @@
 import { isAbsolute, join } from "node:path";
 import { pathToFileURL } from "node:url";
-import { JsonFileMediaRepository, type MediaRepository } from "@usedropp/core";
-import type { DroppConfig, Media, MediaQuery } from "@usedropp/types";
+import { JsonFileMediaRepository, type MediaRepository } from "@droppjs/core";
+import type { DroppConfig, Media, MediaQuery } from "@droppjs/types";
 
 export type RepositoryWithOptionalAll = MediaRepository & {
   all?: () => Promise<Media[]>;

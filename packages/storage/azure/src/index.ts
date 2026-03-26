@@ -1,5 +1,5 @@
 import { BlobServiceClient } from "@azure/storage-blob";
-import type { StorageDriver } from "@usedropp/core";
+import type { StorageDriver } from "@droppjs/core";
 
 export type AzureStorageOptions = {
   connectionString: string;

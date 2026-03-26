@@ -1,5 +1,5 @@
 {
-  "name": "@usedropp/queue-bullmq",
+  "name": "@droppjs/queue-bullmq",
   "version": "0.1.0",
   "author": "Ribal Arshad",
   "type": "module",
@@ -13,7 +13,7 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@usedropp/core": "workspace:*",
+    "@droppjs/core": "workspace:*",
     "bullmq": "^5.36.0"
   },
   "devDependencies": {

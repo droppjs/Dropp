@@ -13,8 +13,8 @@ import {
 } from "@nestjs/common";
 import { FileInterceptor } from "@nestjs/platform-express";
 import type { Express } from "express";
-import type { Dropp } from "@usedropp/core";
-import type { AttachInput, Media } from "@usedropp/types";
+import type { Dropp } from "@droppjs/core";
+import type { AttachInput, Media } from "@droppjs/types";
 
 /**
  * NestJS Dropp Service - Injectable service for media operations
@@ -52,7 +52,7 @@ export interface DroppModuleOptions {
  *
  * Usage:
  * ```typescript
- * import { DroppService } from "@usedropp/adapter-nestjs";
+ * import { DroppService } from "@droppjs/adapter-nestjs";
  *
  * @Controller("media")
  * export class MediaController {

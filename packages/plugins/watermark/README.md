@@ -1,4 +1,4 @@
-# @usedropp/plugin-watermark
+# @droppjs/plugin-watermark
 
 Add text watermarks to image files with configurable position, opacity, and styling.
 
@@ -14,9 +14,9 @@ Add text watermarks to image files with configurable position, opacity, and styl
 ## Installation
 
 ```bash
-npm install @usedropp/plugin-watermark
+npm install @droppjs/plugin-watermark
 # or
-pnpm add @usedropp/plugin-watermark
+pnpm add @droppjs/plugin-watermark
 ```
 
 ## Usage
@@ -24,8 +24,8 @@ pnpm add @usedropp/plugin-watermark
 ### Basic Usage
 
 ```typescript
-import { Dropp } from "@usedropp/core";
-import { WatermarkPlugin } from "@usedropp/plugin-watermark";
+import { Dropp } from "@droppjs/core";
+import { WatermarkPlugin } from "@droppjs/plugin-watermark";
 
 const dropp = new Dropp({
   repository,

@@ -1,4 +1,4 @@
-# @usedropp/plugins-core
+# @droppjs/plugins-core
 
 Core plugin system for Dropp media management. Provides the plugin interface, lifecycle hooks, and registry for managing media plugins.
 
@@ -12,9 +12,9 @@ Core plugin system for Dropp media management. Provides the plugin interface, li
 ## Installation
 
 ```bash
-npm install @usedropp/plugins-core
+npm install @droppjs/plugins-core
 # or
-pnpm add @usedropp/plugins-core
+pnpm add @droppjs/plugins-core
 ```
 
 ## Core Concepts
@@ -60,7 +60,7 @@ interface PluginContext {
 Use `PluginRegistry` to manage plugins:
 
 ```typescript
-import { PluginRegistry } from "@usedropp/plugins-core";
+import { PluginRegistry } from "@droppjs/plugins-core";
 
 const registry = new PluginRegistry();
 
@@ -86,9 +86,9 @@ const enabledPlugins = registry.getEnabled();
 Plugins are integrated into Dropp core and automatically executed during media lifecycle:
 
 ```typescript
-import { Dropp } from "@usedropp/core";
-import { WatermarkPlugin } from "@usedropp/plugin-watermark";
-import { AITaggingPlugin } from "@usedropp/plugin-ai-tagging";
+import { Dropp } from "@droppjs/core";
+import { WatermarkPlugin } from "@droppjs/plugin-watermark";
+import { AITaggingPlugin } from "@droppjs/plugin-ai-tagging";
 
 const dropp = new Dropp({
   repository,
@@ -109,16 +109,16 @@ const media = await dropp.attach({
 
 ## Available Plugins
 
-- **@usedropp/plugin-watermark** - Add text watermarks to images
-- **@usedropp/plugin-ai-tagging** - Automatic image tagging using AI
-- **@usedropp/plugin-seo** - SEO metadata generation
+- **@droppjs/plugin-watermark** - Add text watermarks to images
+- **@droppjs/plugin-ai-tagging** - Automatic image tagging using AI
+- **@droppjs/plugin-seo** - SEO metadata generation
 
 ## Creating Custom Plugins
 
 Implement the `MediaPlugin` interface:
 
 ```typescript
-import type { MediaPlugin, PluginContext } from "@usedropp/plugins-core";
+import type { MediaPlugin, PluginContext } from "@droppjs/plugins-core";
 
 export class MyCustomPlugin implements MediaPlugin {
   name = "my-custom-plugin";

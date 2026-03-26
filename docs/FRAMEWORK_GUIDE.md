@@ -4,19 +4,19 @@ Pick the adapter that fits your app. Ship faster, debate less.
 
 ## Express
 
-Package: `@usedropp/adapter-express`
+Package: `@droppjs/adapter-express`
 
 Best for middleware-first APIs.
 
 ## NestJS
 
-Package: `@usedropp/adapter-nestjs`
+Package: `@droppjs/adapter-nestjs`
 
 Best for modules, decorators, and service layers.
 
 ## Next.js
 
-Package: `@usedropp/adapter-next`
+Package: `@droppjs/adapter-next`
 
 Best for App Router handlers and full-stack React apps.
 

@@ -1,5 +1,5 @@
-import type { MediaRepository } from "@usedropp/core";
-import type { Media, MediaCreateInput } from "@usedropp/types";
+import type { MediaRepository } from "@droppjs/core";
+import type { Media, MediaCreateInput } from "@droppjs/types";
 
 export class DrizzleMediaRepository implements MediaRepository {
   constructor(

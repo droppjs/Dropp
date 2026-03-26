@@ -1,5 +1,5 @@
 import { Args, Command, Flags } from "@oclif/core";
-import { loadConfig } from "@usedropp/config";
+import { loadConfig } from "@droppjs/config";
 import { resolveRepository } from "../../utils/repository.js";
 import {
   findCollectionById,

@@ -3,7 +3,7 @@ import {
   S3Client,
   DeleteObjectCommand,
 } from "@aws-sdk/client-s3";
-import type { StorageDriver } from "@usedropp/core";
+import type { StorageDriver } from "@droppjs/core";
 
 export type S3StorageOptions = {
   bucket: string;

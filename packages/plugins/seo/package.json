@@ -1,5 +1,5 @@
 {
-  "name": "@usedropp/plugin-seo",
+  "name": "@droppjs/plugin-seo",
   "version": "1.0.0",
   "author": "Ribal Arshad",
   "description": "SEO metadata plugin for Dropp media management",
@@ -20,8 +20,8 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@usedropp/plugins-core": "workspace:*",
-    "@usedropp/types": "workspace:*"
+    "@droppjs/plugins-core": "workspace:*",
+    "@droppjs/types": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",

@@ -1,6 +1,6 @@
 import type { Request, Response, NextFunction } from "express";
-import type { Dropp } from "@usedropp/core";
-import type { AttachInput, Media } from "@usedropp/types";
+import type { Dropp } from "@droppjs/core";
+import type { AttachInput, Media } from "@droppjs/types";
 
 /**
  * Express middleware for file upload handling with Dropp
@@ -22,7 +22,7 @@ export interface DroppExpressOptions {
  * ```typescript
  * import express from "express";
  * import multer from "multer";
- * import { droppAttachMiddleware } from "@usedropp/adapter-express";
+ * import { droppAttachMiddleware } from "@droppjs/adapter-express";
  *
  * const app = express();
  * const upload = multer({ storage: multer.memoryStorage() });

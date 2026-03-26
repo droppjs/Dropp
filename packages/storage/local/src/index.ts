@@ -1,6 +1,6 @@
 import { mkdir, writeFile, rm } from "node:fs/promises";
 import { dirname, join } from "node:path";
-import type { StorageDriver } from "@usedropp/core";
+import type { StorageDriver } from "@droppjs/core";
 
 export class LocalStorageDriver implements StorageDriver {
   constructor(

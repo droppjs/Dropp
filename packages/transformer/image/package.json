@@ -1,5 +1,5 @@
 {
-  "name": "@usedropp/transformer-image",
+  "name": "@droppjs/transformer-image",
   "version": "0.1.0",
   "author": "Ribal Arshad",
   "type": "module",
@@ -13,7 +13,7 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@usedropp/core": "workspace:*",
+    "@droppjs/core": "workspace:*",
     "sharp": "^0.33.5"
   },
   "devDependencies": {

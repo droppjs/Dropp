@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { DataSource } from "typeorm";
-import { TypeOrmMediaRepository } from "@usedropp/db-typeorm";
+import { TypeOrmMediaRepository } from "@droppjs/db-typeorm";
 
 // Replace this with your actual Media entity class
 import { MediaEntity } from "./entities/MediaEntity.js";

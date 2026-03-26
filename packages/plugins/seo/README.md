@@ -1,4 +1,4 @@
-# @usedropp/plugin-seo
+# @droppjs/plugin-seo
 
 Automatically enrich media with SEO-friendly metadata including alt text generation, descriptions, and image sitemap support.
 
@@ -13,9 +13,9 @@ Automatically enrich media with SEO-friendly metadata including alt text generat
 ## Installation
 
 ```bash
-npm install @usedropp/plugin-seo
+npm install @droppjs/plugin-seo
 # or
-pnpm add @usedropp/plugin-seo
+pnpm add @droppjs/plugin-seo
 ```
 
 ## Usage
@@ -23,8 +23,8 @@ pnpm add @usedropp/plugin-seo
 ### Basic Usage
 
 ```typescript
-import { Dropp } from "@usedropp/core";
-import { SEOPlugin } from "@usedropp/plugin-seo";
+import { Dropp } from "@droppjs/core";
+import { SEOPlugin } from "@droppjs/plugin-seo";
 
 const dropp = new Dropp({
   repository,

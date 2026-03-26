@@ -9,7 +9,7 @@
 // ==========================================
 
 import { NextRequest, NextResponse } from "next/server";
-import { handleUpload, handleGetModelMedia } from "@usedropp/adapter-next";
+import { handleUpload, handleGetModelMedia } from "@droppjs/adapter-next";
 import { dropp } from "@/lib/dropp"; // Your Dropp instance
 
 /**
@@ -59,7 +59,7 @@ export async function GET(request: NextRequest) {
 // ==========================================
 
 import type { NextRequest } from "next/server";
-import { handleGetMedia, handleDeleteMedia } from "@usedropp/adapter-next";
+import { handleGetMedia, handleDeleteMedia } from "@droppjs/adapter-next";
 
 export interface PageParams {
   params: Promise<{
@@ -96,10 +96,10 @@ export async function DELETE(
 // ==========================================
 
 import path from "path";
-import { Dropp } from "@usedropp/core";
-import { PrismaMediaRepository } from "@usedropp/db-prisma";
-import { LocalStorageDriver } from "@usedropp/storage-local";
-import { ImageTransformer } from "@usedropp/transformer-image";
+import { Dropp } from "@droppjs/core";
+import { PrismaMediaRepository } from "@droppjs/db-prisma";
+import { LocalStorageDriver } from "@droppjs/storage-local";
+import { ImageTransformer } from "@droppjs/transformer-image";
 
 export const dropp = new Dropp({
   repository: new PrismaMediaRepository(),
@@ -115,7 +115,7 @@ export const dropp = new Dropp({
 
 "use client"; // Client component directive
 
-import { useMediaUpload } from "@usedropp/adapter-next";
+import { useMediaUpload } from "@droppjs/adapter-next";
 
 export function MediaUploadForm({ model, modelId }: { model: string; modelId: string }) {
   const { upload, deleteMedia } = useMediaUpload();
@@ -185,7 +185,7 @@ export function MediaUploadForm({ model, modelId }: { model: string; modelId: st
 // React Server Component usage
 // ==========================================
 
-import { getMedia } from "@usedropp/adapter-next";
+import { getMedia } from "@droppjs/adapter-next";
 
 interface MediaDisplayProps {
   mediaId: string;

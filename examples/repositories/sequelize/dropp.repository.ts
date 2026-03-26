@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { Sequelize } from "sequelize";
-import { SequelizeMediaRepository } from "@usedropp/db-sequelize";
+import { SequelizeMediaRepository } from "@droppjs/db-sequelize";
 
 // Replace this with your Sequelize model
 import { MediaModel } from "./models/MediaModel.js";

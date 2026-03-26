@@ -1,7 +1,7 @@
 import { Command, Flags } from "@oclif/core";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
-import { loadConfig } from "@usedropp/config";
+import { loadConfig } from "@droppjs/config";
 import { resolveRepository } from "../utils/repository.js";
 import { createStorageDriver } from "../utils/storage.js";
 

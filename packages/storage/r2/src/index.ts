@@ -1,4 +1,4 @@
-import { S3StorageDriver, type S3StorageOptions } from "@usedropp/storage-s3";
+import { S3StorageDriver, type S3StorageOptions } from "@droppjs/storage-s3";
 
 export type R2StorageOptions = S3StorageOptions & {
   accountId: string;
