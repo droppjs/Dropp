@@ -6,8 +6,8 @@ Think of it as your media department in a box: upload files, transform them, sto
 
 ## What you get
 
-- Framework-agnostic core (`@dropp/core`)
-- CLI with enterprise command coverage (`@dropp/cli`)
+- Framework-agnostic core (`@usedropp/core`)
+- CLI with enterprise command coverage (`@usedropp/cli`)
 - ORM adapters for Prisma, TypeORM, Drizzle, Sequelize, MikroORM, Mongoose, and Kysely
 - Storage adapters for Local, S3, Cloudflare R2, Azure Blob, and GCS
 - Image/video transformers
@@ -32,9 +32,9 @@ Think of it as your media department in a box: upload files, transform them, sto
 2. Build all packages:
    - `pnpm build`
 3. Initialize config:
-   - `pnpm --filter @dropp/cli dev init`
+   - `pnpm --filter @usedropp/cli dev init`
 4. Run doctor checks:
-   - `pnpm --filter @dropp/cli dev doctor --verbose`
+   - `pnpm --filter @usedropp/cli dev doctor --verbose`
 
 If `doctor` is happy, your future self will also be happy.
 

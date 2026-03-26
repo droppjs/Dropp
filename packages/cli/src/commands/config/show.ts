@@ -1,5 +1,5 @@
 import { Command, Flags } from "@oclif/core";
-import { loadConfig } from "@dropp/config";
+import { loadConfig } from "@usedropp/config";
 
 export default class ConfigShow extends Command {
   static override description = "Show the resolved Dropp configuration";

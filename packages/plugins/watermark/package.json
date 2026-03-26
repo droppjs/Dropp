@@ -1,5 +1,5 @@
 {
-  "name": "@dropp/plugin-watermark",
+  "name": "@usedropp/plugin-watermark",
   "version": "1.0.0",
   "author": "Ribal Arshad",
   "description": "Watermark plugin for Dropp media management",
@@ -20,8 +20,8 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@dropp/plugins-core": "workspace:*",
-    "@dropp/types": "workspace:*",
+    "@usedropp/plugins-core": "workspace:*",
+    "@usedropp/types": "workspace:*",
     "sharp": "^0.33.0"
   },
   "devDependencies": {

@@ -1,10 +1,10 @@
-import type { StorageDriver } from "@dropp/core";
-import type { DroppConfig } from "@dropp/types";
-import { LocalStorageDriver } from "@dropp/storage-local";
-import { S3StorageDriver } from "@dropp/storage-s3";
-import { R2StorageDriver } from "@dropp/storage-r2";
-import { AzureBlobStorageDriver } from "@dropp/storage-azure";
-import { GCSStorageDriver } from "@dropp/storage-gcs";
+import type { StorageDriver } from "@usedropp/core";
+import type { DroppConfig } from "@usedropp/types";
+import { LocalStorageDriver } from "@usedropp/storage-local";
+import { S3StorageDriver } from "@usedropp/storage-s3";
+import { R2StorageDriver } from "@usedropp/storage-r2";
+import { AzureBlobStorageDriver } from "@usedropp/storage-azure";
+import { GCSStorageDriver } from "@usedropp/storage-gcs";
 
 export function createStorageDriver(config: DroppConfig): StorageDriver {
   if (config.storage.driver === "local") {

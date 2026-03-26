@@ -1,5 +1,5 @@
 import { z } from "zod";
-import type { DroppConfig } from "@dropp/types";
+import type { DroppConfig } from "@usedropp/types";
 import { access, readFile } from "node:fs/promises";
 import { constants } from "node:fs";
 import { join } from "node:path";

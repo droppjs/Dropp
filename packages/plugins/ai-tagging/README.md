@@ -1,4 +1,4 @@
-# @dropp/plugin-ai-tagging
+# @usedropp/plugin-ai-tagging
 
 Automatically tag images and videos using OpenAI's Vision API. Extracts meaningful labels and content descriptions with confidence scores.
 
@@ -14,9 +14,9 @@ Automatically tag images and videos using OpenAI's Vision API. Extracts meaningf
 ## Installation
 
 ```bash
-npm install @dropp/plugin-ai-tagging
+npm install @usedropp/plugin-ai-tagging
 # or
-pnpm add @dropp/plugin-ai-tagging
+pnpm add @usedropp/plugin-ai-tagging
 ```
 
 ## Setup
@@ -30,8 +30,8 @@ pnpm add @dropp/plugin-ai-tagging
 ### 2. Configure Plugin
 
 ```typescript
-import { Dropp } from "@dropp/core";
-import { AITaggingPlugin } from "@dropp/plugin-ai-tagging";
+import { Dropp } from "@usedropp/core";
+import { AITaggingPlugin } from "@usedropp/plugin-ai-tagging";
 
 const dropp = new Dropp({
   repository,

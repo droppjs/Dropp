@@ -1,4 +1,4 @@
-# @dropp/plugins-core
+# @usedropp/plugins-core
 
 Core plugin system for Dropp media management. Provides the plugin interface, lifecycle hooks, and registry for managing media plugins.
 
@@ -12,9 +12,9 @@ Core plugin system for Dropp media management. Provides the plugin interface, li
 ## Installation
 
 ```bash
-npm install @dropp/plugins-core
+npm install @usedropp/plugins-core
 # or
-pnpm add @dropp/plugins-core
+pnpm add @usedropp/plugins-core
 ```
 
 ## Core Concepts
@@ -60,7 +60,7 @@ interface PluginContext {
 Use `PluginRegistry` to manage plugins:
 
 ```typescript
-import { PluginRegistry } from "@dropp/plugins-core";
+import { PluginRegistry } from "@usedropp/plugins-core";
 
 const registry = new PluginRegistry();
 
@@ -86,9 +86,9 @@ const enabledPlugins = registry.getEnabled();
 Plugins are integrated into Dropp core and automatically executed during media lifecycle:
 
 ```typescript
-import { Dropp } from "@dropp/core";
-import { WatermarkPlugin } from "@dropp/plugin-watermark";
-import { AITaggingPlugin } from "@dropp/plugin-ai-tagging";
+import { Dropp } from "@usedropp/core";
+import { WatermarkPlugin } from "@usedropp/plugin-watermark";
+import { AITaggingPlugin } from "@usedropp/plugin-ai-tagging";
 
 const dropp = new Dropp({
   repository,
@@ -109,16 +109,16 @@ const media = await dropp.attach({
 
 ## Available Plugins
 
-- **@dropp/plugin-watermark** - Add text watermarks to images
-- **@dropp/plugin-ai-tagging** - Automatic image tagging using AI
-- **@dropp/plugin-seo** - SEO metadata generation
+- **@usedropp/plugin-watermark** - Add text watermarks to images
+- **@usedropp/plugin-ai-tagging** - Automatic image tagging using AI
+- **@usedropp/plugin-seo** - SEO metadata generation
 
 ## Creating Custom Plugins
 
 Implement the `MediaPlugin` interface:
 
 ```typescript
-import type { MediaPlugin, PluginContext } from "@dropp/plugins-core";
+import type { MediaPlugin, PluginContext } from "@usedropp/plugins-core";
 
 export class MyCustomPlugin implements MediaPlugin {
   name = "my-custom-plugin";

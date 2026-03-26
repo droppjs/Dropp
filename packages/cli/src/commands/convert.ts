@@ -1,8 +1,8 @@
 import { Args, Command, Flags } from "@oclif/core";
-import { loadConfig } from "@dropp/config";
+import { loadConfig } from "@usedropp/config";
 import { join } from "node:path";
-import { SharpTransformationDriver } from "@dropp/transformer-image";
-import { FfmpegTransformationDriver } from "@dropp/transformer-video";
+import { SharpTransformationDriver } from "@usedropp/transformer-image";
+import { FfmpegTransformationDriver } from "@usedropp/transformer-video";
 import { resolveRepository } from "../utils/repository.js";
 
 export default class Convert extends Command {

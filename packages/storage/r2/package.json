@@ -1,5 +1,5 @@
 {
-  "name": "@dropp/storage-r2",
+  "name": "@usedropp/storage-r2",
   "version": "0.1.0",
   "author": "Ribal Arshad",
   "type": "module",
@@ -14,7 +14,7 @@
     "dev": "tsc -p tsconfig.json --watch"
   },
   "dependencies": {
-    "@dropp/storage-s3": "workspace:*"
+    "@usedropp/storage-s3": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.6.3"

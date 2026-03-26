@@ -1,6 +1,6 @@
 import { Command, Flags } from "@oclif/core";
-import { loadConfig } from "@dropp/config";
-import type { DroppConfig } from "@dropp/types";
+import { loadConfig } from "@usedropp/config";
+import type { DroppConfig } from "@usedropp/types";
 import { exec as execCallback } from "node:child_process";
 import { promisify } from "node:util";
 

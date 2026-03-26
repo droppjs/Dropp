@@ -1,4 +1,4 @@
-import type { Media, MediaCreateInput, MediaQuery } from "@dropp/types";
+import type { Media, MediaCreateInput, MediaQuery } from "@usedropp/types";
 
 export interface MediaRepository {
   create(data: MediaCreateInput): Promise<Media>;

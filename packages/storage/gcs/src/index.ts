@@ -1,5 +1,5 @@
 import { Storage } from "@google-cloud/storage";
-import type { StorageDriver } from "@dropp/core";
+import type { StorageDriver } from "@usedropp/core";
 
 export type GCSStorageOptions = {
   bucket: string;

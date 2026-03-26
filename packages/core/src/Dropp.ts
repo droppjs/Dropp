@@ -1,4 +1,4 @@
-import type { AttachInput, Media } from "@dropp/types";
+import type { AttachInput, Media } from "@usedropp/types";
 import { createHash } from "node:crypto";
 import type {
   MediaPlugin,

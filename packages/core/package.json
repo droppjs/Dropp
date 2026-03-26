@@ -1,5 +1,5 @@
 {
-  "name": "@dropp/core",
+  "name": "@usedropp/core",
   "version": "0.1.0",
   "type": "module",
   "author": "Ribal Arshad",
@@ -15,8 +15,8 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@dropp/types": "workspace:*",
-    "@dropp/plugins-core": "workspace:*"
+    "@usedropp/types": "workspace:*",
+    "@usedropp/plugins-core": "workspace:*"
   },
   "devDependencies": {
     "rimraf": "^6.0.1",

@@ -1,4 +1,4 @@
-import type { MediaPlugin, PluginContext } from "@dropp/plugins-core";
+import type { MediaPlugin, PluginContext } from "@usedropp/plugins-core";
 import OpenAI from "openai";
 
 /**

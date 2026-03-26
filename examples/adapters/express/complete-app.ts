@@ -7,11 +7,11 @@
 import express, { Request, Response, NextFunction } from "express";
 import multer from "multer";
 import path from "path";
-import { Dropp } from "@dropp/core";
-import { PrismaMediaRepository } from "@dropp/db-prisma";
-import { LocalStorageDriver } from "@dropp/storage-local";
-import { ImageTransformer } from "@dropp/transformer-image";
-import { DroppController, droppAttachMiddleware, droppErrorHandler } from "@dropp/adapter-express";
+import { Dropp } from "@usedropp/core";
+import { PrismaMediaRepository } from "@usedropp/db-prisma";
+import { LocalStorageDriver } from "@usedropp/storage-local";
+import { ImageTransformer } from "@usedropp/transformer-image";
+import { DroppController, droppAttachMiddleware, droppErrorHandler } from "@usedropp/adapter-express";
 
 const app = express();
 app.use(express.json());

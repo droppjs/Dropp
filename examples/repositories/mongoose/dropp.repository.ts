@@ -1,6 +1,6 @@
 // @ts-nocheck
 import mongoose from "mongoose";
-import { MongooseMediaRepository } from "@dropp/db-mongoose";
+import { MongooseMediaRepository } from "@usedropp/db-mongoose";
 
 // Replace this with your Mongoose model
 import { MediaModel } from "./models/MediaModel.js";

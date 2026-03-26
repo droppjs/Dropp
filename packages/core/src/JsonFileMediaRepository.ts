@@ -1,7 +1,7 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
 import { randomUUID } from "node:crypto";
-import type { Media, MediaCreateInput, MediaQuery } from "@dropp/types";
+import type { Media, MediaCreateInput, MediaQuery } from "@usedropp/types";
 import type { MediaRepository } from "./contracts.js";
 
 type MediaRecord = Omit<Media, "createdAt"> & { createdAt: string };

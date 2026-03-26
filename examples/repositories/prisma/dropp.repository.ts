@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { PrismaClient } from "@prisma/client";
-import { PrismaMediaRepository } from "@dropp/db-prisma";
+import { PrismaMediaRepository } from "@usedropp/db-prisma";
 
 const prisma = new PrismaClient();
 

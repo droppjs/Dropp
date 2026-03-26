@@ -1,13 +1,13 @@
-# @dropp/cli
+# @usedropp/cli
 
 `dropp` is the CLI for daily media workflows.
 
 ## Start fast
 
-- `pnpm --filter @dropp/cli dev config:init`
-- `pnpm --filter @dropp/cli dev doctor --verbose`
-- `pnpm --filter @dropp/cli dev attach ./sample.jpg --model post --modelId 1 --collection cover`
-- `pnpm --filter @dropp/cli dev list --limit 10`
+- `pnpm --filter @usedropp/cli dev config:init`
+- `pnpm --filter @usedropp/cli dev doctor --verbose`
+- `pnpm --filter @usedropp/cli dev attach ./sample.jpg --model post --modelId 1 --collection cover`
+- `pnpm --filter @usedropp/cli dev list --limit 10`
 
 ## Common commands
 

@@ -1,5 +1,5 @@
 import { Command, Flags } from "@oclif/core";
-import { loadConfig } from "@dropp/config";
+import { loadConfig } from "@usedropp/config";
 import { resolveRepository } from "../../utils/repository.js";
 
 export default class AnalyticsReport extends Command {

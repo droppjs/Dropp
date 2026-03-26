@@ -1,6 +1,6 @@
 import { Command, Flags } from "@oclif/core";
-import { loadConfig } from "@dropp/config";
-import type { MediaQuery } from "@dropp/types";
+import { loadConfig } from "@usedropp/config";
+import type { MediaQuery } from "@usedropp/types";
 import { resolveRepository } from "../utils/repository.js";
 
 export default class List extends Command {

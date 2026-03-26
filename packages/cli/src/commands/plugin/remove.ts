@@ -2,7 +2,7 @@ import { Args, Command } from "@oclif/core";
 import { access, readFile, writeFile } from "node:fs/promises";
 import { constants } from "node:fs";
 import { join } from "node:path";
-import type { DroppConfig } from "@dropp/types";
+import type { DroppConfig } from "@usedropp/types";
 
 export default class PluginRemove extends Command {
   static override description = "Remove an installed plugin";
@@ -35,7 +35,7 @@ export default class PluginRemove extends Command {
 
       this.log(`✓ Plugin '${pluginName}' removed from dropp.config.json`);
       this.log(`\nNext: Remove the npm package if no longer needed:`);
-      this.log(`  pnpm remove @dropp/plugin-${pluginName}`);
+      this.log(`  pnpm remove @usedropp/plugin-${pluginName}`);
     } catch (error) {
       if (error instanceof Error) {
         throw error;

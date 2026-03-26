@@ -1,5 +1,5 @@
 {
-  "name": "@dropp/plugins-core",
+  "name": "@usedropp/plugins-core",
   "version": "1.0.0",
   "author": "Ribal Arshad",
   "description": "Core plugin system for Dropp media management",
@@ -20,7 +20,7 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@dropp/types": "workspace:*"
+    "@usedropp/types": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",

@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { Pool } from "pg";
 import { drizzle } from "drizzle-orm/node-postgres";
-import { DrizzleMediaRepository } from "@dropp/db-drizzle";
+import { DrizzleMediaRepository } from "@usedropp/db-drizzle";
 
 // Replace this with your actual Drizzle media table object
 import { mediaTable } from "./schema.js";

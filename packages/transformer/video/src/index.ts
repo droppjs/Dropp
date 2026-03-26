@@ -1,6 +1,6 @@
 import ffmpeg from "fluent-ffmpeg";
 import ffmpegPath from "ffmpeg-static";
-import type { TransformationDriver } from "@dropp/core";
+import type { TransformationDriver } from "@usedropp/core";
 
 if (ffmpegPath) {
   ffmpeg.setFfmpegPath(ffmpegPath as unknown as string);

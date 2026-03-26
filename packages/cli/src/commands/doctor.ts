@@ -1,5 +1,5 @@
 import { Command, Flags } from "@oclif/core";
-import { loadConfig } from "@dropp/config";
+import { loadConfig } from "@usedropp/config";
 import { resolveRepository } from "../utils/repository.js";
 import chalk from "chalk";
 import { access } from "node:fs/promises";

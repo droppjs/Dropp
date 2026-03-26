@@ -20,14 +20,14 @@ import {
 import { FileInterceptor } from "@nestjs/platform-express";
 import { memoryStorage } from "multer";
 import { NestFactory } from "@nestjs/core";
-import { Dropp } from "@dropp/core";
-import { PrismaMediaRepository } from "@dropp/db-prisma";
-import { LocalStorageDriver } from "@dropp/storage-local";
-import { ImageTransformer } from "@dropp/transformer-image";
+import { Dropp } from "@usedropp/core";
+import { PrismaMediaRepository } from "@usedropp/db-prisma";
+import { LocalStorageDriver } from "@usedropp/storage-local";
+import { ImageTransformer } from "@usedropp/transformer-image";
 import {
   DroppService,
   DroppController as DroppMediaController,
-} from "@dropp/adapter-nestjs";
+} from "@usedropp/adapter-nestjs";
 import path from "path";
 
 // ==========================================
@@ -35,7 +35,7 @@ import path from "path";
 // ==========================================
 
 /**
- * DroppService - Provided by @dropp/adapter-nestjs
+ * DroppService - Provided by @usedropp/adapter-nestjs
  * Alternative: Create your own service by injecting Dropp instance
  */
 @Module({})

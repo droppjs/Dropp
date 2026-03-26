@@ -1,5 +1,5 @@
 {
-  "name": "@dropp/adapter-next",
+  "name": "@usedropp/adapter-next",
   "version": "0.1.0",
   "author": "Ribal Arshad",
   "description": "Next.js adapter for Dropp media management",
@@ -23,8 +23,8 @@
     "next": "^14.0.0"
   },
   "dependencies": {
-    "@dropp/core": "workspace:*",
-    "@dropp/types": "workspace:*"
+    "@usedropp/core": "workspace:*",
+    "@usedropp/types": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",

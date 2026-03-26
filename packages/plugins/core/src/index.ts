@@ -1,4 +1,4 @@
-import type { Media } from "@dropp/types";
+import type { Media } from "@usedropp/types";
 
 /**
  * Plugin lifecycle hook context

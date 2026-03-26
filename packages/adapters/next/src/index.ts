@@ -41,7 +41,7 @@ function jsonResponse(data: any, status = 200) {
  *
  * Usage in app/api/media/route.ts:
  * ```typescript
- * import { handleUpload } from "@dropp/adapter-next";
+ * import { handleUpload } from "@usedropp/adapter-next";
  * import { dropp } from "@/lib/dropp";
  *
  * export async function POST(request: NextRequest) {
@@ -97,7 +97,7 @@ export async function handleUpload(
  *
  * Usage in app/api/media/[id]/route.ts:
  * ```typescript
- * import { handleGetMedia } from "@dropp/adapter-next";
+ * import { handleGetMedia } from "@usedropp/adapter-next";
  * import { dropp } from "@/lib/dropp";
  *
  * export async function GET(
@@ -134,7 +134,7 @@ export async function handleGetMedia(
  *
  * Usage in app/api/media/[id]/route.ts:
  * ```typescript
- * import { handleDeleteMedia } from "@dropp/adapter-next";
+ * import { handleDeleteMedia } from "@usedropp/adapter-next";
  * import { dropp } from "@/lib/dropp";
  *
  * export async function DELETE(
@@ -166,7 +166,7 @@ export async function handleDeleteMedia(
  *
  * Usage in app/api/media/model/[model]/[modelId]/route.ts:
  * ```typescript
- * import { handleGetModelMedia } from "@dropp/adapter-next";
+ * import { handleGetModelMedia } from "@usedropp/adapter-next";
  * import { dropp } from "@/lib/dropp";
  *
  * export async function GET(
@@ -202,7 +202,7 @@ export async function handleGetModelMedia(
  *
  * Usage:
  * ```typescript
- * import { getMedia } from "@dropp/adapter-next";
+ * import { getMedia } from "@usedropp/adapter-next";
  *
  * export default async function MediaComponent({ mediaId }: { mediaId: string }) {
  *   const media = await getMedia(mediaId);

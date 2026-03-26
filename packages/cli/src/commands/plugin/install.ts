@@ -2,12 +2,12 @@ import { Args, Command, Flags } from "@oclif/core";
 import { access, readFile, writeFile } from "node:fs/promises";
 import { constants } from "node:fs";
 import { join } from "node:path";
-import type { DroppConfig } from "@dropp/types";
+import type { DroppConfig } from "@usedropp/types";
 
 const AVAILABLE_PLUGINS = {
   watermark: {
     description: "Add watermarks to images",
-    package: "@dropp/plugin-watermark",
+    package: "@usedropp/plugin-watermark",
     defaultConfig: {
       text: "© My Brand",
       position: "bottomRight",
@@ -16,7 +16,7 @@ const AVAILABLE_PLUGINS = {
   },
   "ai-tagging": {
     description: "Automatically tag media using AI",
-    package: "@dropp/plugin-ai-tagging",
+    package: "@usedropp/plugin-ai-tagging",
     defaultConfig: {
       provider: "openai",
       maxTags: 10,
@@ -25,7 +25,7 @@ const AVAILABLE_PLUGINS = {
   },
   seo: {
     description: "Generate SEO-friendly metadata",
-    package: "@dropp/plugin-seo",
+    package: "@usedropp/plugin-seo",
     defaultConfig: {
       generateAltText: true,
       generateDescription: true,

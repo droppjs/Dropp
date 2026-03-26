@@ -2,8 +2,8 @@ import { Command, Flags } from "@oclif/core";
 import { watch as fsWatch, readFile } from "node:fs/promises";
 import { basename, join } from "node:path";
 import { lookup as mimeLookup } from "mime-types";
-import { loadConfig } from "@dropp/config";
-import { Dropp } from "@dropp/core";
+import { loadConfig } from "@usedropp/config";
+import { Dropp } from "@usedropp/core";
 import { resolveRepository } from "../utils/repository.js";
 import { createStorageDriver } from "../utils/storage.js";
 

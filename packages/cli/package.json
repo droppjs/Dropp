@@ -1,5 +1,5 @@
 {
-  "name": "@dropp/cli",
+  "name": "@usedropp/cli",
   "version": "0.1.0",
   "type": "module",
   "author": "Ribal Arshad",
@@ -21,16 +21,16 @@
     "clean": "rimraf dist oclif.manifest.json"
   },
   "dependencies": {
-    "@dropp/config": "workspace:*",
-    "@dropp/core": "workspace:*",
-    "@dropp/storage-azure": "workspace:*",
-    "@dropp/storage-gcs": "workspace:*",
-    "@dropp/storage-local": "workspace:*",
-    "@dropp/storage-r2": "workspace:*",
-    "@dropp/storage-s3": "workspace:*",
-    "@dropp/transformer-image": "workspace:*",
-    "@dropp/transformer-video": "workspace:*",
-    "@dropp/types": "workspace:*",
+    "@usedropp/config": "workspace:*",
+    "@usedropp/core": "workspace:*",
+    "@usedropp/storage-azure": "workspace:*",
+    "@usedropp/storage-gcs": "workspace:*",
+    "@usedropp/storage-local": "workspace:*",
+    "@usedropp/storage-r2": "workspace:*",
+    "@usedropp/storage-s3": "workspace:*",
+    "@usedropp/transformer-image": "workspace:*",
+    "@usedropp/transformer-video": "workspace:*",
+    "@usedropp/types": "workspace:*",
     "@oclif/core": "^4.0.29",
     "chalk": "^5.4.1",
     "mime-types": "^2.1.35"

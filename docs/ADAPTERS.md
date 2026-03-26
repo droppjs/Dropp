@@ -6,9 +6,9 @@ Pick one adapter, wire it once, and move on with your life.
 
 ## Quick chooser
 
-- Express → `@dropp/adapter-express` (middleware-first)
-- NestJS → `@dropp/adapter-nestjs` (service/controller style)
-- Next.js → `@dropp/adapter-next` (App Router handlers)
+- Express → `@usedropp/adapter-express` (middleware-first)
+- NestJS → `@usedropp/adapter-nestjs` (service/controller style)
+- Next.js → `@usedropp/adapter-next` (App Router handlers)
 
 ## Express
 
@@ -16,7 +16,7 @@ Best when you want direct control and simple route wiring.
 
 Install:
 
-- `pnpm add @dropp/adapter-express @dropp/core @dropp/types express multer`
+- `pnpm add @usedropp/adapter-express @usedropp/core @usedropp/types express multer`
 
 Flow:
 
@@ -31,7 +31,7 @@ Best when your app already uses modules, services, and decorators.
 
 Install:
 
-- `pnpm add @dropp/adapter-nestjs @dropp/core @dropp/types @nestjs/common @nestjs/core @nestjs/platform-express`
+- `pnpm add @usedropp/adapter-nestjs @usedropp/core @usedropp/types @nestjs/common @nestjs/core @nestjs/platform-express`
 
 Flow:
 
@@ -45,7 +45,7 @@ Best when your API lives in App Router route handlers.
 
 Install:
 
-- `pnpm add @dropp/adapter-next @dropp/core @dropp/types next`
+- `pnpm add @usedropp/adapter-next @usedropp/core @usedropp/types next`
 
 Flow:
 

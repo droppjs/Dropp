@@ -1,5 +1,5 @@
 import { Queue } from "bullmq";
-import type { QueueDriver } from "@dropp/core";
+import type { QueueDriver } from "@usedropp/core";
 
 export class BullMqQueueDriver implements QueueDriver {
   private readonly queue: Queue;

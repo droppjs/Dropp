@@ -1,5 +1,5 @@
 import sharp from "sharp";
-import type { TransformationDriver } from "@dropp/core";
+import type { TransformationDriver } from "@usedropp/core";
 
 export class SharpTransformationDriver implements TransformationDriver {
   async transform(input: {

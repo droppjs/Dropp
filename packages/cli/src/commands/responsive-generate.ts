@@ -1,7 +1,7 @@
 import { Args, Command, Flags } from "@oclif/core";
-import { loadConfig } from "@dropp/config";
+import { loadConfig } from "@usedropp/config";
 import { join } from "node:path";
-import { SharpTransformationDriver } from "@dropp/transformer-image";
+import { SharpTransformationDriver } from "@usedropp/transformer-image";
 import { resolveRepository } from "../utils/repository.js";
 
 type ResponsivePreset = {

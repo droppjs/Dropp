@@ -1,5 +1,5 @@
-import type { MediaRepository } from "@dropp/core";
-import type { Media, MediaCreateInput } from "@dropp/types";
+import type { MediaRepository } from "@usedropp/core";
+import type { Media, MediaCreateInput } from "@usedropp/types";
 
 export class TypeOrmMediaRepository implements MediaRepository {
   constructor(private readonly repository: any) {}
