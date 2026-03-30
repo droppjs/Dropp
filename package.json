@@ -1,9 +1,17 @@
 {
   "name": "droppjs",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "type": "module",
   "author": "Ribal Arshad",
   "description": "Advanced all-in-one media library for Node.js (core, adapters, storage, transformers, CLI)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/droppjs/Dropp"
+  },
+  "homepage": "https://github.com/droppjs/Dropp#readme",
+  "bugs": {
+    "url": "https://github.com/droppjs/Dropp/issues"
+  },
   "packageManager": "pnpm@10.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
