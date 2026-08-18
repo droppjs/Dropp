@@ -115,7 +115,7 @@
     "multer": "^2.2.0",
     "next": "^16.3.1",
     "oclif": "^4.23.30",
-    "reflect-metadata": "^0.1.14",
+    "reflect-metadata": "^0.2.2",
     "rimraf": "^6.0.1",
     "tsx": "^4.23.12",
     "typescript": "^6.0.2"
