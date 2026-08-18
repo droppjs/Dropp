@@ -34,7 +34,7 @@ export const droppConfigSchema = z.object({
       .object({
         module: z.string(),
         exportName: z.string().optional(),
-        options: z.record(z.unknown()).optional(),
+        options: z.record(z.string(), z.unknown()).optional(),
       })
       .optional(),
   }),
