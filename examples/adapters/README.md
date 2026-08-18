@@ -1,25 +1,17 @@
-# Adapter Examples
+# Adapter examples
 
-These examples show framework wiring with the current single-package setup (`droppjs`).
-
-Copy, adapt, ship. No ceremony required.
+Reference apps for the `droppjs` framework helpers. For the step-by-step first upload, use the [README](../../README.md) and [docs/FRAMEWORK_GUIDE.md](../../docs/FRAMEWORK_GUIDE.md).
 
 ## Files
 
 - [express/complete-app.ts](express/complete-app.ts)
 - [nestjs/complete-app.ts](nestjs/complete-app.ts)
-- [next/complete-app.ts](next/complete-app.ts)
+- [next/complete-app.ts](next/complete-app.ts): one file for reference; in a real app split into `lib/dropp.ts` and `app/api/media` routes
 
-## Notes
+These use `JsonFileMediaRepository` + local disk on purpose so you can see the HTTP shape without a database.
 
-- They are reference apps/snippets, not production templates.
-- `next/complete-app.ts` is intentionally a consolidated reference; split it into route files in real projects.
-- For quick local smoke testing, the examples use `JsonFileMediaRepository` + local storage.
-
-Simple on purpose, so you can focus on integration shape first.
-
-## Minimal run idea
+## Run idea
 
 - Express: `npx tsx examples/adapters/express/complete-app.ts`
-- NestJS: import `bootstrap()` from the file and call it from your Nest app entrypoint.
-- Next.js: copy handlers into your `app/api` routes.
+- NestJS: import `bootstrap()` from the Nest file
+- Next.js: copy the handlers into `app/api` as shown in the framework guide

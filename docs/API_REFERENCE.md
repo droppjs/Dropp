@@ -1,13 +1,11 @@
 # API Reference
 
-This is the practical map of Dropp's user-facing API.
-
-No mystery, no archaeology, no "read 14 files and guess" energy.
+Method signatures and types. For a first upload in Next.js, use the [README](../README.md). For copy-paste route files, use [FRAMEWORK_GUIDE.md](FRAMEWORK_GUIDE.md).
 
 ## Package
 
-- Install: `pnpm add droppjs`
-- Import from: `droppjs`
+- Install: `npm install droppjs`
+- Import from: `droppjs` (server-only. Do not import from a Client Component)
 
 ## Core class
 
@@ -130,12 +128,13 @@ Dropp stays explicit on purpose so data flow stays easy to debug at 3AM.
 
 ### Next.js exports
 
-- `handleUpload(request, options)`
+- `handleUpload(request, options)`: `POST`, reads `formData` field `file`
 - `handleGetMedia(id, options)`
 - `handleDeleteMedia(id, options)`
 - `handleGetModelMedia(model, modelId, options)`
-- `getMedia(id)`
-- `useMediaUpload()`
+- `getMedia(id)` / `useMediaUpload()`: these call `/api/media` via `fetch`. Do not import them from a Client Component (they ship with the server package). Use `fetch` + `FormData` in the browser instead.
+
+Full route files: [FRAMEWORK_GUIDE.md](FRAMEWORK_GUIDE.md).
 
 ## Storage exports
 

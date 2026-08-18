@@ -1,0 +1,69 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Fetch dependencies (with retry)
+        run: |
+          ATTEMPTS=4
+          for attempt in $(seq 1 "$ATTEMPTS"); do
+            echo "Dependency fetch attempt ${attempt}/${ATTEMPTS}"
+
+            set +e
+            OUTPUT=$(pnpm fetch --frozen-lockfile 2>&1)
+            STATUS=$?
+            set -e
+
+            echo "$OUTPUT"
+
+            if [ "$STATUS" -eq 0 ]; then
+              echo "Dependency fetch succeeded."
+              exit 0
+            fi
+
+            if echo "$OUTPUT" | grep -Eqi "E429|429 Too Many Requests|EAI_AGAIN|ETIMEDOUT|ECONNRESET|5[0-9]{2}"; then
+              if [ "$attempt" -lt "$ATTEMPTS" ]; then
+                BASE=$((30 * (2 ** (attempt - 1))))
+                EXTRA=$((RANDOM % 20))
+                WAIT=$((BASE + EXTRA))
+                echo "Transient registry error while fetching deps. Retrying in ${WAIT}s..."
+                sleep "$WAIT"
+                continue
+              fi
+            fi
+
+            echo "Dependency fetch failed with a non-retriable error."
+            exit "$STATUS"
+          done
+
+      - name: Install dependencies (offline)
+        run: pnpm install --frozen-lockfile --offline
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Build
+        run: pnpm build
+
+      - name: Test
+        run: pnpm test

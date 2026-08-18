@@ -1,8 +1,8 @@
 # Plugin Guide
 
-Plugins let you add custom behavior to Dropp without editing core code.
+Add this after uploads already work. First-run setup: [README](../README.md).
 
-Which is great, because editing core code at 2AM is a lifestyle we do not recommend.
+Plugins let you add behavior (watermark, SEO, tags) without editing Dropp.
 
 ## Built-in plugins
 

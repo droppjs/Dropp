@@ -1,8 +1,8 @@
-# Cookbook: Complete Feature Guide with Code
+# Cookbook
 
-Real, working code for every Dropp feature.
+Recipes for attach, replace, versions, batch, pagination, and plugins.
 
-No guessing. No "read the types." Just copy-paste and ship.
+This is not the getting-started guide. If you have not uploaded a file from Next.js / Express / NestJS yet, start at the [README](../README.md).
 
 ## Setup (same for all examples)
 
@@ -911,8 +911,8 @@ for (let page = 0; page < 5; page++) {
 
 **Sort options:**
 
-- `"createdAt:desc"` — newest first (default)
-- `"createdAt:asc"` — oldest first
+- `"createdAt:desc"`: newest first (default)
+- `"createdAt:asc"`: oldest first
 
 **Use case:** Product gallery pagination, media lightbox with sorting.
 
@@ -1069,8 +1069,8 @@ await manageBlogPostGallery("post-1", [
 
 ## Next Steps
 
-- [API Reference](API_REFERENCE.md) — Type signatures
-- [CLI Reference](CLI_REFERENCE.md) — Command-line interface
-- [ORM Guide](ORM_GUIDE.md) — Database adapters
-- [Framework Guide](FRAMEWORK_GUIDE.md) — Express/NestJS/Next.js setup
-- [Plugin Guide](PLUGIN_GUIDE.md) — Custom plugin development
+- [README](../README.md): first upload
+- [Framework Guide](FRAMEWORK_GUIDE.md): Next.js / Express / NestJS
+- [API Reference](API_REFERENCE.md): type signatures
+- [ORM Guide](ORM_GUIDE.md): Prisma and other databases
+- [Plugin Guide](PLUGIN_GUIDE.md): built-in plugins

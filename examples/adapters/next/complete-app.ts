@@ -1,12 +1,16 @@
 // @ts-nocheck
 /**
- * Next.js + Dropp example (single-package setup)
+ * Next.js + Dropp: consolidated reference.
  *
- * This file is a reference snippet with copy/paste-ready exports.
- * In a real app, split these into:
- * - app/api/media/route.ts
- * - app/api/media/[id]/route.ts
- * - lib/dropp.ts
+ * Copy into a real app as:
+ *   lib/dropp.ts
+ *   app/api/media/route.ts
+ *   app/api/media/[id]/route.ts
+ *
+ * Step-by-step (including the Client Component upload):
+ *   README.md and docs/FRAMEWORK_GUIDE.md
+ *
+ * Do not import droppjs from a "use client" file.
  */
 
 import path from "node:path";

@@ -1,30 +1,27 @@
-# Dropp Docs Index
+# Docs
 
-Welcome to the docs hub. Pick your path, ship your feature, and pretend it was always this easy.
+New to Dropp? Use the **start** list. The rest is for after you have a working upload.
 
-## Start here
+## Start
 
-- **[Cookbook: Complete Feature Guide](COOKBOOK.md)** ← Real code for everything (attach, delete, batch ops, pagination, queries)
-- [Quick Start](QUICK_START.md)
-- [API Reference](API_REFERENCE.md)
-- [CLI Reference](CLI_REFERENCE.md)
+1. [README](../README.md): `init`, `generate:adapter next`, first upload
+2. [Quick start](QUICK_START.md): command cheat sheet
+3. [Framework guide](FRAMEWORK_GUIDE.md): what the generator writes
+4. [Adapters](ADAPTERS.md): storage, repository, framework helpers
 
-## Integration
+## After the first upload
 
-- [Framework Guide](FRAMEWORK_GUIDE.md)
-- [Adapters](ADAPTERS.md)
-- [ORM Guide](ORM_GUIDE.md)
+- [Cookbook](COOKBOOK.md): replace, versions, batch, pagination, plugins
+- [CLI reference](CLI_REFERENCE.md)
+- [ORM guide](ORM_GUIDE.md): Prisma schema and other databases
+- [API reference](API_REFERENCE.md): types and method signatures
 
-## Extending Dropp
+## Extending
 
-- **[Plugin Development Guide](PLUGIN_DEVELOPMENT_GUIDE.md)** ← Build compression, enrichment, validation plugins
-- [Plugin Guide](PLUGIN_GUIDE.md) — Config-based plugin setup
+- [Plugin guide](PLUGIN_GUIDE.md): enable built-in plugins
+- [Plugin development](PLUGIN_DEVELOPMENT_GUIDE.md): write your own
 
-## Examples
+## Examples in the repo
 
-- [Adapter examples](../examples/adapters/README.md)
-- [Repository examples](../examples/repositories/README.md)
-
-If you get lost, run `dropp doctor --verbose` and come back here with snacks.
-
-Snacks optional. `doctor` is not.
+- [Framework snippets](../examples/adapters/README.md)
+- [ORM repository snippets](../examples/repositories/README.md)

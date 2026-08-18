@@ -1,10 +1,18 @@
 # CLI Reference
 
-Dropp CLI is available as `dropp` (or `node ./bin/run.js` locally).
+The CLI is how you set Dropp up. App code still calls `dropp.attach()` after that.
 
-Same power, different outfit.
+```bash
+npx dropp init
+npx dropp generate:adapter next
+npx dropp doctor --verbose
+npx dropp attach ./photo.jpg --model posts --modelId 42
+npx dropp list --limit 10
+```
 
-If you want code usage (`dropp.attach`, `dropp.replace`) see [API_REFERENCE.md](API_REFERENCE.md).
+From a clone of this repo, use `node ./bin/run.js` instead of `npx dropp`.
+
+TypeScript API: [API_REFERENCE.md](API_REFERENCE.md). First-run walkthrough: [README](../README.md).
 
 ## Common flags
 
@@ -87,11 +95,12 @@ Think of this as your "don't-make-me-open-help-10-times" section.
 
 ## Generate scaffolding
 
-- `dropp generate`
-- `dropp generate:all`
-- `dropp generate:model <name>`
-- `dropp generate:repository --orm <driver>`
-- `dropp generate:migration --orm <driver> [--mode <mode>]`
+- `dropp generate:adapter next|express|nestjs`: framework upload files
+- `dropp generate:all <name> --orm <driver>`: repository + model + migration + config
+- `dropp generate:model <name> --orm <driver>`
+- `dropp generate:repository <driver>`
+- `dropp generate:migration <name> --orm <driver>`
+- `dropp generate adapter next`: same as `generate:adapter`
 
 ## ORM migrations
 
@@ -107,11 +116,10 @@ Think of this as your "don't-make-me-open-help-10-times" section.
 
 ## Recommended user flow
 
-1. `dropp config:init`
-2. `dropp doctor --verbose`
-3. `dropp attach ./sample.jpg --model post --modelId 1 --collection cover`
-4. `dropp list --limit 10`
+1. `npx dropp init`
+2. `npx dropp generate:adapter next` (skip if you only want the CLI)
+3. `npx dropp doctor --verbose`
+4. `npx dropp attach ./sample.jpg --model posts --modelId 1 --collection cover`
+5. `npx dropp list --limit 10`
 
-If step 4 shows your media, everything is wired correctly.
-
-If not, run `dropp doctor --verbose` and let the CLI be your therapist.
+If step 5 shows your media, setup is done. If not, run `doctor` again.

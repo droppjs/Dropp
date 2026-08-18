@@ -112,6 +112,15 @@ async function main() {
       );
     }
 
+    runSmokeCommand(workdir, ["generate:adapter", "next"]);
+    const nextRoute = join(workdir, "app", "api", "media", "route.ts");
+    const nextLib = join(workdir, "lib", "dropp.ts");
+    const routeSource = await readFile(nextRoute, "utf8");
+    const libSource = await readFile(nextLib, "utf8");
+    if (!routeSource.includes("handleUpload") || !libSource.includes("Dropp")) {
+      throw new Error("Smoke test failed: generate:adapter next wrote unexpected files.");
+    }
+
     console.log("Smoke test passed.");
   } finally {
     await rm(workdir, { recursive: true, force: true });

@@ -1,10 +1,8 @@
-# Dropp Repository Adapters (Examples)
+# Repository examples
 
-These examples show how to wire `orm.repository.module` for different ORMs.
+App code should construct the adapter directly (`new PrismaMediaRepository(prisma)`). See [docs/ORM_GUIDE.md](../../docs/ORM_GUIDE.md).
 
-All examples use single-package imports from `droppjs`.
-
-Pick one, plug it in, and keep moving.
+The files below show the older CLI pattern: export `mediaRepository` so `dropp.config` can load it. Use that only if you want the CLI to talk to the same database.
 
 ## Config pattern
 

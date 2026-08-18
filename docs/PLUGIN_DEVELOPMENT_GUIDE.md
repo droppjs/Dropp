@@ -1,15 +1,17 @@
 # Plugin Development Guide
 
+Write this after you can upload a file. First-run setup: [README](../README.md).
+
 Write custom Dropp plugins to extend media handling without editing core code.
 
 ## What Plugins Do
 
 Plugins hook into the media lifecycle:
 
-- **`beforeUpload`** — Validate or modify file before storage (e.g., compress, encrypt)
-- **`afterUpload`** — Enrich metadata after storage (e.g., extract EXIF, detect objects)
-- **`beforeDelete`** — Prepare cleanup before deletion (e.g., notify external services)
-- **`afterDelete`** — Run side effects after deletion (e.g., log, analytics)
+- **`beforeUpload`**: Validate or modify file before storage (e.g., compress, encrypt)
+- **`afterUpload`**: Enrich metadata after storage (e.g., extract EXIF, detect objects)
+- **`beforeDelete`**: Prepare cleanup before deletion (e.g., notify external services)
+- **`afterDelete`**: Run side effects after deletion (e.g., log, analytics)
 
 ## Plugin Interface
 
@@ -153,7 +155,7 @@ export class MetadataEnrichmentPlugin implements MediaPlugin {
       const objects = await this.detectObjects(media.url);
       enriched.detectedObjects = objects;
       enriched.tags = [
-        ...(media.metadata?.tags ? [media.metadata.tags].flat() : []),
+        ...(media.metadata?.tags ? [media.metadata.tags].flat(): []),
         ...objects.map((o) => o.label),
       ];
     } catch (error) {
@@ -417,25 +419,25 @@ Complete
 
 ### Do's
 
-✅ **Keep beforeUpload fast** — This blocks the upload. Cache expensive operations.
+✅ **Keep beforeUpload fast**: This blocks the upload. Cache expensive operations.
 
-✅ **Log errors in afterUpload** — Don't throw; upload already succeeded.
+✅ **Log errors in afterUpload**: Don't throw; upload already succeeded.
 
-✅ **Implement idempotency** — Multiple calls should be safe.
+✅ **Implement idempotency**: Multiple calls should be safe.
 
-✅ **Handle missing optional data** — Some files may lack EXIF, objects, etc.
+✅ **Handle missing optional data**: Some files may lack EXIF, objects, etc.
 
-✅ **Type your plugin** — Export types so users know what to expect.
+✅ **Type your plugin**: Export types so users know what to expect.
 
 ### Don'ts
 
-❌ **Don't modify the original file buffer** — Create a new one.
+❌ **Don't modify the original file buffer**: Create a new one.
 
-❌ **Don't throw in afterUpload** — Use logging instead.
+❌ **Don't throw in afterUpload**: Use logging instead.
 
-❌ **Don't make infinite loops** — Plugin → attach → plugin again.
+❌ **Don't make infinite loops**: Plugin → attach → plugin again.
 
-❌ **Don't expose secrets in error messages** — API keys should stay hidden.
+❌ **Don't expose secrets in error messages**: API keys should stay hidden.
 
 ---
 
@@ -535,6 +537,6 @@ describe("ImageCompressionPlugin", () => {
 
 ## Next Steps
 
-- [Cookbook](COOKBOOK.md) — Real-world usage examples
-- [API Reference](API_REFERENCE.md) — Plugin interface types
-- [Plugin Guide](PLUGIN_GUIDE.md) — Config-based plugin management
+- [Cookbook](COOKBOOK.md): Real-world usage examples
+- [API Reference](API_REFERENCE.md): Plugin interface types
+- [Plugin Guide](PLUGIN_GUIDE.md): Config-based plugin management

@@ -1,55 +1,44 @@
-# Quick Start
+# Quick start
 
-This guide gets you from zero to first upload in a few minutes.
+```bash
+npm install droppjs
+npx dropp init
+npx dropp doctor --verbose
+npx dropp attach ./photo.jpg --model posts --modelId 42 --collection cover
+npx dropp list --limit 10
+```
 
-Goal: less setup, more "it works".
+That is a working upload with no framework. Config lives in `dropp.config.json`. Metadata goes to `.dropp/media.json`. Files go to the local folder in config (`media` by default, or `public/uploads` after `generate:adapter next`).
 
-Alias tip: if `dropp` is not globally available yet, run `node ./bin/run.js` instead.
+## Put it in an app
 
-## 1) Install and build
+```bash
+npx dropp generate:adapter next      # Next.js App Router
+npx dropp generate:adapter express   # Express
+npx dropp generate:adapter nestjs    # NestJS
+```
 
-- `pnpm install`
-- `pnpm build`
+Then [FRAMEWORK_GUIDE.md](FRAMEWORK_GUIDE.md) for how those files are used.
 
-## 2) Initialize config
+## Use Prisma (or another ORM)
 
-- `node ./bin/run.js config:init`
+```bash
+npx dropp generate:all media --orm prisma
+npx dropp migrate --orm prisma --mode dev
+```
 
-## 3) Check environment
+[ORM_GUIDE.md](ORM_GUIDE.md) for the rest.
 
-- `node ./bin/run.js doctor --verbose`
+## Useful commands
 
-## 4) Upload your first file
+| Command | What it does |
+| --- | --- |
+| `npx dropp init` | Write `dropp.config.json` |
+| `npx dropp doctor --verbose` | Check config / env |
+| `npx dropp attach <file> --model <name> --modelId <id>` | Upload |
+| `npx dropp list` / `get` / `info` / `remove` | Inspect and delete |
+| `npx dropp generate:adapter next` | Scaffold Next.js routes |
+| `npx dropp generate:all media --orm prisma` | Model + repository + migration |
+| `npx dropp plugin:install watermark` | Enable a built-in plugin |
 
-- `node ./bin/run.js attach ./sample.jpg --model post --modelId 1 --collection cover`
-- `node ./bin/run.js attach ./sample.mp3 --model podcast --modelId 1 --collection episodes`
-- `node ./bin/run.js attach ./guide.pdf --model docs --modelId 42 --collection manuals`
-
-## 5) View uploaded media
-
-- `node ./bin/run.js list --limit 10`
-
-## 6) Inspect one media item
-
-- `node ./bin/run.js info <media-id>`
-
-## 7) Optional: optimize/convert
-
-- `node ./bin/run.js optimize <media-id>`
-- `node ./bin/run.js convert <media-id> --resizeWidth 1200 --webp`
-
-## 8) JSON output for scripts
-
-- `node ./bin/run.js list --limit 10 --json`
-- `node ./bin/run.js info <media-id> --json`
-
-If you automate anything, use `--json` and future-you will send thank-you notes.
-
-## Next docs
-
-- API reference: [API_REFERENCE.md](API_REFERENCE.md)
-- CLI reference: [CLI_REFERENCE.md](CLI_REFERENCE.md)
-- ORM setup: [ORM_GUIDE.md](ORM_GUIDE.md)
-- Framework integration: [FRAMEWORK_GUIDE.md](FRAMEWORK_GUIDE.md)
-- Plugins: [PLUGIN_GUIDE.md](PLUGIN_GUIDE.md)
-- Adapters: [ADAPTERS.md](ADAPTERS.md)
+Full list: [CLI_REFERENCE.md](CLI_REFERENCE.md).

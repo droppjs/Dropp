@@ -1,14 +1,7 @@
-# Dropp Docs
+# Dropp docs app
 
-This folder is the docs app area. Until the full site is wired, the canonical written guides live in the root docs folder.
+Canonical guides live in the repo root and `docs/`.
 
-## Read these first
+Start here: [../../README.md](../../README.md)
 
-- [../../docs/QUICK_START.md](../../docs/QUICK_START.md)
-- [../../docs/ORM_GUIDE.md](../../docs/ORM_GUIDE.md)
-- [../../docs/FRAMEWORK_GUIDE.md](../../docs/FRAMEWORK_GUIDE.md)
-- [../../docs/PLUGIN_GUIDE.md](../../docs/PLUGIN_GUIDE.md)
-
-## Intent
-
-When this docs app is fully connected, it should mirror those guides and add searchable navigation, examples, and versioned pages.
+Then: [../../docs/FRAMEWORK_GUIDE.md](../../docs/FRAMEWORK_GUIDE.md), [../../docs/ADAPTERS.md](../../docs/ADAPTERS.md).

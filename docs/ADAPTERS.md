@@ -1,95 +1,204 @@
-# Framework Adapters
+# Adapters
 
-Dropp includes framework adapters in the same `droppjs` package.
+“Adapter” in Dropp means one of three things. You always pick a **storage** adapter and a **repository** adapter. A **framework** adapter is optional.
 
-Translation: one package, less drama.
+```ts
+new Dropp({
+  repository: /* where rows go */,
+  storage: /* where file bytes go */,
+});
+```
 
-Pick your framework, wire once, move on with your life.
+All of these classes are exported from `droppjs`. There is no extra package per adapter.
 
-## Quick chooser
+Generate instead of writing these by hand:
 
-- Express → middleware-first routes
-- NestJS → modules/services/decorators
-- Next.js → App Router handlers
+```bash
+npx dropp generate:adapter next
+npx dropp generate:all media --orm prisma
+```
 
-## Install
+If you have not uploaded a file yet: [README](../README.md).
 
-- `pnpm add droppjs`
+---
 
-Then add only what your framework needs:
+## 1. Storage: where the file goes
 
-- Express: `pnpm add express multer`
-- NestJS: `pnpm add @nestjs/common @nestjs/core @nestjs/platform-express`
-- Next.js: `pnpm add next`
+| Class | Backend | Typical use |
+| --- | --- | --- |
+| `LocalStorageDriver` | Local disk | Local Next.js / Express |
+| `S3StorageDriver` | Amazon S3 | Production |
+| `R2StorageDriver` | Cloudflare R2 | Production, S3-compatible |
+| `AzureBlobStorageDriver` | Azure Blob | Azure shops |
+| `GCSStorageDriver` | Google Cloud Storage | GCP shops |
 
-## Express API
+### Local
 
-Exports from `droppjs`:
+```ts
+import { LocalStorageDriver } from "droppjs";
 
-- `droppAttachMiddleware(options)`
-- `droppErrorHandler()`
-- `DroppController`
+new LocalStorageDriver(
+  "public/uploads", // folder on disk
+  "/uploads",       // URL prefix returned on media.url
+);
+```
 
-`droppAttachMiddleware(options)` options:
+In Next.js, using `public/uploads` + `/uploads` means the file is immediately requestable as `/uploads/...`.
 
-- `dropp`: initialized `Dropp` instance
-- `model`: string
-- `modelId`: string
-- `tenantId?`: string
-- `collection?`: string
-- `metadata?`: object
+### S3
 
-## NestJS API
+```ts
+import { S3StorageDriver } from "droppjs";
 
-Exports from `droppjs`:
+new S3StorageDriver({
+  bucket: process.env.S3_BUCKET!,
+  region: process.env.S3_REGION!,
+  publicBaseUrl: process.env.S3_PUBLIC_URL, // optional
+});
+```
 
-- `DroppService`
-- `NestDroppController` (renamed export of the adapter controller)
-- `DroppModuleOptions` type
+Uses the default AWS SDK credential chain (`AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACCESS_KEY`, or an instance role).
 
-Typical flow:
+### R2
 
-1. Create one `Dropp` instance
-2. Inject `DroppService`
-3. Use `FileInterceptor("file")`
-4. Pass `model` + `modelId`
+```ts
+import { R2StorageDriver } from "droppjs";
 
-## Next.js API
+new R2StorageDriver({
+  accountId: process.env.R2_ACCOUNT_ID!,
+  bucket: process.env.R2_BUCKET!,
+  publicBaseUrl: process.env.R2_PUBLIC_URL,
+});
+```
 
-Exports from `droppjs`:
+### Azure / GCS
 
-- `handleUpload(request, options)`
-- `handleGetMedia(id, options)`
-- `handleDeleteMedia(id, options)`
-- `handleGetModelMedia(model, modelId, options)`
-- `getMedia(id)`
-- `useMediaUpload()`
+```ts
+import { AzureBlobStorageDriver, GCSStorageDriver } from "droppjs";
 
-`handleUpload()` options:
+new AzureBlobStorageDriver({
+  connectionString: process.env.AZURE_STORAGE_CONNECTION_STRING!,
+  container: "media",
+  publicBaseUrl: process.env.AZURE_PUBLIC_URL,
+});
 
-- `dropp`: initialized `Dropp` instance
-- `model`: string
-- `modelId`: string
-- `tenantId?`: string
-- `collection?`: string
+new GCSStorageDriver({
+  bucket: process.env.GCS_BUCKET!,
+  projectId: process.env.GCS_PROJECT_ID,
+  keyFilename: process.env.GOOGLE_APPLICATION_CREDENTIALS,
+  publicBaseUrl: process.env.GCS_PUBLIC_URL,
+});
+```
 
-## Rules that prevent pain
+Serverless hosts cannot keep `LocalStorageDriver` files. Use S3/R2/Azure/GCS there.
 
-- Always pass both `model` and `modelId`
-- Keep adapter code thin; keep business logic in your service layer
-- Run `dropp doctor --verbose` before deep debugging
-- Use `--json` when wiring CLI commands into CI scripts
+---
 
-These rules are boring. Boring is good. Boring means production is calm.
+## 2. Repository: where the metadata row goes
 
-## Testing
+| Class | Backend |
+| --- | --- |
+| `JsonFileMediaRepository` | JSON file (no database) |
+| `PrismaMediaRepository` | Prisma |
+| `TypeOrmMediaRepository` | TypeORM |
+| `DrizzleMediaRepository` | Drizzle |
+| `SequelizeMediaRepository` | Sequelize |
+| `MikroOrmMediaRepository` | MikroORM |
+| `MongooseMediaRepository` | Mongoose |
+| `KyselyMediaRepository` | Kysely |
 
-- `pnpm test`
+### JSON file (first run)
 
-## Related docs
+```ts
+import { JsonFileMediaRepository } from "droppjs";
 
-- Quick start: [QUICK_START.md](QUICK_START.md)
-- API reference: [API_REFERENCE.md](API_REFERENCE.md)
-- CLI reference: [CLI_REFERENCE.md](CLI_REFERENCE.md)
-- ORM setup: [ORM_GUIDE.md](ORM_GUIDE.md)
-- Plugin guide: [PLUGIN_GUIDE.md](PLUGIN_GUIDE.md)
+new JsonFileMediaRepository(".dropp/media.json");
+```
+
+### Prisma (typical app)
+
+Add the `Media` model from [ORM_GUIDE.md](ORM_GUIDE.md), migrate, then:
+
+```ts
+import { PrismaClient } from "@prisma/client";
+import { PrismaMediaRepository } from "droppjs";
+
+const prisma = new PrismaClient();
+new PrismaMediaRepository(prisma);
+```
+
+The adapter expects a Prisma model named `Media` with the fields in the ORM guide. You pass your existing `PrismaClient`. Dropp does not create a second database connection of its own.
+
+CLI `dropp.config` repository modules are only needed if you use the CLI against the same database. App code constructs the class directly, as above.
+
+---
+
+## 3. Framework: optional HTTP helpers
+
+These do not store anything. They parse the request and call `dropp.attach()` / `get()` / `delete()`.
+
+### Next.js
+
+| Helper | Use |
+| --- | --- |
+| `handleUpload(request, { dropp, model, modelId, collection? })` | `POST` route, `formData` field `file` |
+| `handleGetMedia(id, { dropp })` | `GET` one row |
+| `handleDeleteMedia(id, { dropp })` | `DELETE` one row |
+| `handleGetModelMedia(model, modelId, { dropp })` | `GET` all files for a record |
+
+Do not import `droppjs` (including `useMediaUpload`) from a Client Component. Upload with `fetch` + `FormData` instead. Full files: [FRAMEWORK_GUIDE.md](FRAMEWORK_GUIDE.md).
+
+### Express
+
+| Helper | Use |
+| --- | --- |
+| `droppAttachMiddleware({ dropp, model, modelId, … })` | After `multer().single("file")`; sets `req.media` |
+| `DroppController` | `getMedia`, `getModelMedia`, `deleteMedia` |
+| `droppErrorHandler()` | Last middleware |
+
+Multer must use `memoryStorage()` so the file is a `Buffer`.
+
+### NestJS
+
+| Helper | Use |
+| --- | --- |
+| `DroppService` | Injectable wrapper: `attach`, `get`, `getByModel`, `delete` |
+| `NestDroppController` | Ready-made controller if you do not want to write one |
+
+Provide `DroppService` with `useFactory: () => new DroppService(dropp)`.
+
+---
+
+## Putting it together
+
+Local Next.js:
+
+```ts
+new Dropp({
+  repository: new JsonFileMediaRepository(".dropp/media.json"),
+  storage: new LocalStorageDriver("public/uploads", "/uploads"),
+});
+```
+
+Production Next.js:
+
+```ts
+new Dropp({
+  repository: new PrismaMediaRepository(prisma),
+  storage: new S3StorageDriver({
+    bucket: process.env.S3_BUCKET!,
+    region: process.env.S3_REGION!,
+  }),
+});
+```
+
+Same `handleUpload` routes. Only the constructor arguments change.
+
+---
+
+## Rules that save time
+
+- Always pass `model` and `modelId`
+- One `Dropp` instance per process
+- Keep helpers thin; keep `new Dropp({...})` in one file
+- `droppjs` stays on the server
