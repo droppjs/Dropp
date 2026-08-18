@@ -1,44 +1,44 @@
 # Quick start
 
+Install, init, upload. No framework required.
+
 ```bash
 npm install droppjs
 npx dropp init
 npx dropp doctor --verbose
-npx dropp attach ./photo.jpg --model posts --modelId 42 --collection cover
+npx dropp attach ./photo.jpg --model products --modelId sku-1001 --collection gallery
 npx dropp list --limit 10
 ```
 
-That is a working upload with no framework. Config lives in `dropp.config.json`. Metadata goes to `.dropp/media.json`. Files go to the local folder in config (`media` by default, or `public/uploads` after `generate:adapter next`).
+That stores the file on disk and the metadata in `.dropp/media.json`.
 
-## Put it in an app
+## Next.js, Express, or NestJS
 
 ```bash
-npx dropp generate:adapter next      # Next.js App Router
-npx dropp generate:adapter express   # Express
-npx dropp generate:adapter nestjs    # NestJS
+npx dropp generate:adapter next
+npx dropp generate:adapter express
+npx dropp generate:adapter nestjs
 ```
 
-Then [FRAMEWORK_GUIDE.md](FRAMEWORK_GUIDE.md) for how those files are used.
+[FRAMEWORK_GUIDE.md](FRAMEWORK_GUIDE.md) shows the generated files.
 
-## Use Prisma (or another ORM)
+## Prisma (or another database)
 
 ```bash
 npx dropp generate:all media --orm prisma
 npx dropp migrate --orm prisma --mode dev
 ```
 
-[ORM_GUIDE.md](ORM_GUIDE.md) for the rest.
+[ORM_GUIDE.md](ORM_GUIDE.md)
 
-## Useful commands
+## Commands
 
 | Command | What it does |
 | --- | --- |
 | `npx dropp init` | Write `dropp.config.json` |
-| `npx dropp doctor --verbose` | Check config / env |
+| `npx dropp doctor --verbose` | Check config |
 | `npx dropp attach <file> --model <name> --modelId <id>` | Upload |
-| `npx dropp list` / `get` / `info` / `remove` | Inspect and delete |
-| `npx dropp generate:adapter next` | Scaffold Next.js routes |
-| `npx dropp generate:all media --orm prisma` | Model + repository + migration |
-| `npx dropp plugin:install watermark` | Enable a built-in plugin |
+| `npx dropp list` / `get` / `remove` | Inspect and delete |
+| `npx dropp generate:adapter next` | Next.js upload routes |
 
-Full list: [CLI_REFERENCE.md](CLI_REFERENCE.md).
+[CLI_REFERENCE.md](CLI_REFERENCE.md)

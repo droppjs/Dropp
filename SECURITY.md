@@ -2,7 +2,7 @@
 
 ## Supported Versions
 
-At the moment, only the latest release is actively supported with security fixes.
+Only the latest npm release of `droppjs` receives security fixes.
 
 ## Reporting a Vulnerability
 

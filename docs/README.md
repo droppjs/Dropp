@@ -1,27 +1,22 @@
 # Docs
 
-New to Dropp? Use the **start** list. The rest is for after you have a working upload.
+Dropp is a Node.js media library: upload files, store them on disk or S3/R2, and keep metadata in your database. It is used for ecommerce product images, SaaS user uploads, and CMS media.
 
 ## Start
 
-1. [README](../README.md): `init`, `generate:adapter next`, first upload
-2. [Quick start](QUICK_START.md): command cheat sheet
-3. [Framework guide](FRAMEWORK_GUIDE.md): what the generator writes
-4. [Adapters](ADAPTERS.md): storage, repository, framework helpers
+1. [README](../README.md): install and first upload
+2. [Quick start](QUICK_START.md): commands only
+3. [Framework guide](FRAMEWORK_GUIDE.md): Next.js, Express, NestJS
+4. [Adapters](ADAPTERS.md): storage and database choices
 
 ## After the first upload
 
-- [Cookbook](COOKBOOK.md): replace, versions, batch, pagination, plugins
+- [Cookbook](COOKBOOK.md): replace, versions, batch, plugins
 - [CLI reference](CLI_REFERENCE.md)
-- [ORM guide](ORM_GUIDE.md): Prisma schema and other databases
-- [API reference](API_REFERENCE.md): types and method signatures
+- [ORM guide](ORM_GUIDE.md)
+- [API reference](API_REFERENCE.md)
 
 ## Extending
 
-- [Plugin guide](PLUGIN_GUIDE.md): enable built-in plugins
-- [Plugin development](PLUGIN_DEVELOPMENT_GUIDE.md): write your own
-
-## Examples in the repo
-
-- [Framework snippets](../examples/adapters/README.md)
-- [ORM repository snippets](../examples/repositories/README.md)
+- [Plugin guide](PLUGIN_GUIDE.md)
+- [Plugin development](PLUGIN_DEVELOPMENT_GUIDE.md)

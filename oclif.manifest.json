@@ -982,6 +982,43 @@
         "process.js"
       ]
     },
+    "cdn:invalidate": {
+      "aliases": [],
+      "args": {},
+      "description": "Invalidate CDN cache paths",
+      "flags": {
+        "path": {
+          "description": "Path to purge (repeatable)",
+          "name": "path",
+          "required": true,
+          "hasDynamicHelp": false,
+          "multiple": true,
+          "type": "option"
+        },
+        "json": {
+          "description": "Print JSON output",
+          "name": "json",
+          "allowNo": false,
+          "type": "boolean"
+        }
+      },
+      "hasDynamicHelp": false,
+      "hiddenAliases": [],
+      "id": "cdn:invalidate",
+      "pluginAlias": "droppjs",
+      "pluginName": "droppjs",
+      "pluginType": "core",
+      "strict": true,
+      "enableJsonFlag": false,
+      "isESM": true,
+      "relativePath": [
+        "dist",
+        "cli",
+        "commands",
+        "cdn",
+        "invalidate.js"
+      ]
+    },
     "collections:add-media": {
       "aliases": [],
       "args": {
@@ -1138,43 +1175,6 @@
         "commands",
         "collections",
         "remove-media.js"
-      ]
-    },
-    "cdn:invalidate": {
-      "aliases": [],
-      "args": {},
-      "description": "Invalidate CDN cache paths",
-      "flags": {
-        "path": {
-          "description": "Path to purge (repeatable)",
-          "name": "path",
-          "required": true,
-          "hasDynamicHelp": false,
-          "multiple": true,
-          "type": "option"
-        },
-        "json": {
-          "description": "Print JSON output",
-          "name": "json",
-          "allowNo": false,
-          "type": "boolean"
-        }
-      },
-      "hasDynamicHelp": false,
-      "hiddenAliases": [],
-      "id": "cdn:invalidate",
-      "pluginAlias": "droppjs",
-      "pluginName": "droppjs",
-      "pluginType": "core",
-      "strict": true,
-      "enableJsonFlag": false,
-      "isESM": true,
-      "relativePath": [
-        "dist",
-        "cli",
-        "commands",
-        "cdn",
-        "invalidate.js"
       ]
     },
     "config:init": {
@@ -1736,5 +1736,5 @@
       ]
     }
   },
-  "version": "0.1.13"
+  "version": "0.1.14"
 }
