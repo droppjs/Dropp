@@ -25,7 +25,7 @@ export default class Remove extends Command {
     const { args, flags } = await this.parse(Remove);
     const { config } = await loadConfig(process.cwd());
     const repository = await resolveRepository(config, process.cwd());
-    const storage = createStorageDriver(config);
+    const storage = await createStorageDriver(config);
 
     const dropp = new Dropp({ repository, storage });
     const existing = await repository.findById(args.id);

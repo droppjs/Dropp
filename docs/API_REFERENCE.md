@@ -164,7 +164,7 @@ All are exported via `droppjs` root index.
 - `PluginContext`
 - `PluginMetadata`
 - `PluginMediaPlugin` (type alias)
-- Built-ins: Watermark, AI Tagging, SEO
+- Built-ins: `SEOPlugin` from `droppjs`; `WatermarkPlugin` from `droppjs/watermark` (`npm i sharp`); `AITaggingPlugin` from `droppjs/ai-tagging` (`npm i openai`)
 
 ## Config contract (`DroppConfig`)
 

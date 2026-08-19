@@ -1,9 +1,8 @@
 import { Args, Command, Flags } from "@oclif/core";
 import { loadConfig } from "../../config/index.js";
 import { join } from "node:path";
-import { SharpTransformationDriver } from "../../transformer/image/index.js";
-import { FfmpegTransformationDriver } from "../../transformer/video/index.js";
 import { resolveRepository } from "../utils/repository.js";
+import { loadOptional } from "../utils/optional-deps.js";
 
 export default class Optimize extends Command {
   static override description =
@@ -48,8 +47,18 @@ export default class Optimize extends Command {
       : [{ type: "transcode", options: { codec: "h264" } }];
 
     const driver = isImage
-      ? new SharpTransformationDriver()
-      : new FfmpegTransformationDriver();
+      ? new (
+          await loadOptional<typeof import("../../transformer/image/index.js")>(
+            "../../transformer/image/index.js",
+            "npm i sharp",
+          )
+        ).SharpTransformationDriver()
+      : new (
+          await loadOptional<typeof import("../../transformer/video/index.js")>(
+            "../../transformer/video/index.js",
+            "npm i fluent-ffmpeg ffmpeg-static",
+          )
+        ).FfmpegTransformationDriver();
 
     const result = await driver.transform({
       sourcePath,

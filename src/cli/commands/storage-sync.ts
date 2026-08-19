@@ -41,7 +41,7 @@ export default class StorageSync extends Command {
     }
 
     const items = await repository.all();
-    const storage = createStorageDriver(config);
+    const storage = await createStorageDriver(config);
 
     const results: Array<Record<string, unknown>> = [];
 

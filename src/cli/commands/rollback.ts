@@ -19,7 +19,7 @@ export default class Rollback extends Command {
     const { args, flags } = await this.parse(Rollback);
     const { config } = await loadConfig(process.cwd());
     const repository = await resolveRepository(config, process.cwd());
-    const storage = createStorageDriver(config);
+    const storage = await createStorageDriver(config);
     const dropp = new Dropp({ repository, storage });
     const droppWithRollback = dropp as unknown as {
       rollback: (id: string) => Promise<{ id: string; url: string }>;

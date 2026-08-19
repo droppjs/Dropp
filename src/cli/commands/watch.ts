@@ -49,7 +49,7 @@ export default class Watch extends Command {
 
     const { config } = await loadConfig(cwd);
     const repository = await resolveRepository(config, cwd);
-    const storage = createStorageDriver(config);
+    const storage = await createStorageDriver(config);
     const dropp = new Dropp({ repository, storage });
 
     this.log(`Watching ${targetDir}`);

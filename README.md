@@ -90,8 +90,18 @@ Details: [docs/FRAMEWORK_GUIDE.md](docs/FRAMEWORK_GUIDE.md)
 
 ## Storage (where the file goes)
 
+Local disk is included. Cloud SDKs stay out of the default install so `npm i droppjs` does not pull native binaries or install scripts.
+
+```bash
+npm i @aws-sdk/client-s3
+```
+
 ```ts
-import { S3StorageDriver, R2StorageDriver } from "droppjs";
+import { LocalStorageDriver } from "droppjs";
+import { S3StorageDriver } from "droppjs/s3";
+import { R2StorageDriver } from "droppjs/r2";
+
+new LocalStorageDriver("public/uploads", "/uploads");
 
 new S3StorageDriver({
   bucket: process.env.S3_BUCKET!,
@@ -104,9 +114,12 @@ new R2StorageDriver({
 });
 ```
 
-Also: `LocalStorageDriver`, `AzureBlobStorageDriver`, `GCSStorageDriver`.
+Azure: `npm i @azure/storage-blob` then `import { AzureBlobStorageDriver } from "droppjs/azure"`.
+GCS: `npm i @google-cloud/storage` then `import { GCSStorageDriver } from "droppjs/gcs"`.
 
 On Vercel or Lambda, do not use local disk. Use S3 or R2 plus a database.
+
+Resize and watermark need Sharp: `npm i sharp` then `import { SharpTransformationDriver } from "droppjs/image"`.
 
 ---
 

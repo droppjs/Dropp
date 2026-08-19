@@ -1,7 +1,5 @@
 import { Args, Command, Flags } from "@oclif/core";
 import { loadConfig } from "../../config/index.js";
-import { join } from "node:path";
-import { SharpTransformationDriver } from "../../transformer/image/index.js";
 import { resolveRepository } from "../utils/repository.js";
 
 type ResponsivePreset = {
@@ -89,9 +87,6 @@ export default class ResponsiveGenerate extends Command {
       });
     }
 
-    const baseDir = config.storage.local?.baseDir ?? "media";
-    const sourcePath = join(process.cwd(), baseDir, media.path);
-    const transformer = new SharpTransformationDriver();
     const preset = PRESETS[flags.preset];
     const results: Array<Record<string, unknown>> = [];
 

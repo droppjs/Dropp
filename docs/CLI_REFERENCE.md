@@ -66,6 +66,8 @@ Think of this as your "don't-make-me-open-help-10-times" section.
 
 ## Transform and optimization
 
+These need extra packages in the project: `npm i sharp` for images, `npm i fluent-ffmpeg ffmpeg-static` for video.
+
 - `dropp optimize <mediaId>`
 - `dropp convert <mediaId> [--resizeWidth <n>] [--webp]`
 - `dropp responsive-generate <mediaId>`

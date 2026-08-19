@@ -1,12 +1,11 @@
 import type { StorageDriver } from "../../core/index.js";
 import type { DroppConfig } from "../../types/index.js";
 import { LocalStorageDriver } from "../../storage/local/index.js";
-import { S3StorageDriver } from "../../storage/s3/index.js";
-import { R2StorageDriver } from "../../storage/r2/index.js";
-import { AzureBlobStorageDriver } from "../../storage/azure/index.js";
-import { GCSStorageDriver } from "../../storage/gcs/index.js";
+import { loadOptional } from "./optional-deps.js";
 
-export function createStorageDriver(config: DroppConfig): StorageDriver {
+export async function createStorageDriver(
+  config: DroppConfig,
+): Promise<StorageDriver> {
   if (config.storage.driver === "local") {
     const baseDir = config.storage.local?.baseDir ?? "media";
     const baseUrl = config.storage.local?.baseUrl ?? "/media";
@@ -19,6 +18,10 @@ export function createStorageDriver(config: DroppConfig): StorageDriver {
         "Missing `storage.s3` configuration for s3 driver in dropp.config.json.",
       );
     }
+
+    const { S3StorageDriver } = await loadOptional<
+      typeof import("../../storage/s3/index.js")
+    >("../../storage/s3/index.js", "npm i @aws-sdk/client-s3");
 
     return new S3StorageDriver({
       bucket: config.storage.s3.bucket,
@@ -35,6 +38,10 @@ export function createStorageDriver(config: DroppConfig): StorageDriver {
         "Missing `storage.r2` configuration for r2 driver in dropp.config.json.",
       );
     }
+
+    const { R2StorageDriver } = await loadOptional<
+      typeof import("../../storage/r2/index.js")
+    >("../../storage/r2/index.js", "npm i @aws-sdk/client-s3");
 
     return new R2StorageDriver({
       accountId: config.storage.r2.accountId,
@@ -53,6 +60,10 @@ export function createStorageDriver(config: DroppConfig): StorageDriver {
       );
     }
 
+    const { AzureBlobStorageDriver } = await loadOptional<
+      typeof import("../../storage/azure/index.js")
+    >("../../storage/azure/index.js", "npm i @azure/storage-blob");
+
     return new AzureBlobStorageDriver({
       connectionString: config.storage.azure.connectionString,
       container: config.storage.azure.container,
@@ -66,6 +77,10 @@ export function createStorageDriver(config: DroppConfig): StorageDriver {
         "Missing `storage.gcs` configuration for gcs driver in dropp.config.json.",
       );
     }
+
+    const { GCSStorageDriver } = await loadOptional<
+      typeof import("../../storage/gcs/index.js")
+    >("../../storage/gcs/index.js", "npm i @google-cloud/storage");
 
     return new GCSStorageDriver({
       bucket: config.storage.gcs.bucket,

@@ -1019,252 +1019,6 @@
         "invalidate.js"
       ]
     },
-    "collections:add-media": {
-      "aliases": [],
-      "args": {
-        "collectionId": {
-          "description": "Collection id",
-          "name": "collectionId",
-          "required": true
-        },
-        "mediaId": {
-          "description": "Media id",
-          "name": "mediaId",
-          "required": true
-        }
-      },
-      "description": "Add a media item to a collection",
-      "flags": {
-        "json": {
-          "description": "Print JSON output",
-          "name": "json",
-          "allowNo": false,
-          "type": "boolean"
-        }
-      },
-      "hasDynamicHelp": false,
-      "hiddenAliases": [],
-      "id": "collections:add-media",
-      "pluginAlias": "droppjs",
-      "pluginName": "droppjs",
-      "pluginType": "core",
-      "strict": true,
-      "enableJsonFlag": false,
-      "isESM": true,
-      "relativePath": [
-        "dist",
-        "cli",
-        "commands",
-        "collections",
-        "add-media.js"
-      ]
-    },
-    "collections:create": {
-      "aliases": [],
-      "args": {
-        "name": {
-          "description": "Collection name",
-          "name": "name",
-          "required": true
-        }
-      },
-      "description": "Create a new media collection",
-      "flags": {
-        "description": {
-          "description": "Collection description",
-          "name": "description",
-          "hasDynamicHelp": false,
-          "multiple": false,
-          "type": "option"
-        },
-        "customProperties": {
-          "description": "JSON object for custom properties",
-          "name": "customProperties",
-          "hasDynamicHelp": false,
-          "multiple": false,
-          "type": "option"
-        },
-        "json": {
-          "description": "Print JSON output",
-          "name": "json",
-          "allowNo": false,
-          "type": "boolean"
-        }
-      },
-      "hasDynamicHelp": false,
-      "hiddenAliases": [],
-      "id": "collections:create",
-      "pluginAlias": "droppjs",
-      "pluginName": "droppjs",
-      "pluginType": "core",
-      "strict": true,
-      "enableJsonFlag": false,
-      "isESM": true,
-      "relativePath": [
-        "dist",
-        "cli",
-        "commands",
-        "collections",
-        "create.js"
-      ]
-    },
-    "collections:list": {
-      "aliases": [],
-      "args": {},
-      "description": "List all media collections",
-      "flags": {
-        "json": {
-          "description": "Print JSON output",
-          "name": "json",
-          "allowNo": false,
-          "type": "boolean"
-        }
-      },
-      "hasDynamicHelp": false,
-      "hiddenAliases": [],
-      "id": "collections:list",
-      "pluginAlias": "droppjs",
-      "pluginName": "droppjs",
-      "pluginType": "core",
-      "strict": true,
-      "enableJsonFlag": false,
-      "isESM": true,
-      "relativePath": [
-        "dist",
-        "cli",
-        "commands",
-        "collections",
-        "list.js"
-      ]
-    },
-    "collections:remove-media": {
-      "aliases": [],
-      "args": {
-        "collectionId": {
-          "description": "Collection id",
-          "name": "collectionId",
-          "required": true
-        },
-        "mediaId": {
-          "description": "Media id",
-          "name": "mediaId",
-          "required": true
-        }
-      },
-      "description": "Remove a media item from a collection",
-      "flags": {
-        "json": {
-          "description": "Print JSON output",
-          "name": "json",
-          "allowNo": false,
-          "type": "boolean"
-        }
-      },
-      "hasDynamicHelp": false,
-      "hiddenAliases": [],
-      "id": "collections:remove-media",
-      "pluginAlias": "droppjs",
-      "pluginName": "droppjs",
-      "pluginType": "core",
-      "strict": true,
-      "enableJsonFlag": false,
-      "isESM": true,
-      "relativePath": [
-        "dist",
-        "cli",
-        "commands",
-        "collections",
-        "remove-media.js"
-      ]
-    },
-    "config:init": {
-      "aliases": [],
-      "args": {},
-      "description": "Generate dropp.config.json in current project",
-      "flags": {
-        "force": {
-          "char": "f",
-          "description": "Overwrite existing dropp.config.json",
-          "name": "force",
-          "allowNo": false,
-          "type": "boolean"
-        }
-      },
-      "hasDynamicHelp": false,
-      "hiddenAliases": [],
-      "id": "config:init",
-      "pluginAlias": "droppjs",
-      "pluginName": "droppjs",
-      "pluginType": "core",
-      "strict": true,
-      "enableJsonFlag": false,
-      "isESM": true,
-      "relativePath": [
-        "dist",
-        "cli",
-        "commands",
-        "config",
-        "init.js"
-      ]
-    },
-    "config:show": {
-      "aliases": [],
-      "args": {},
-      "description": "Show the resolved Dropp configuration",
-      "flags": {
-        "json": {
-          "description": "Print JSON output",
-          "name": "json",
-          "allowNo": false,
-          "type": "boolean"
-        }
-      },
-      "hasDynamicHelp": false,
-      "hiddenAliases": [],
-      "id": "config:show",
-      "pluginAlias": "droppjs",
-      "pluginName": "droppjs",
-      "pluginType": "core",
-      "strict": true,
-      "enableJsonFlag": false,
-      "isESM": true,
-      "relativePath": [
-        "dist",
-        "cli",
-        "commands",
-        "config",
-        "show.js"
-      ]
-    },
-    "config:validate": {
-      "aliases": [],
-      "args": {},
-      "description": "Validate dropp.config.json schema and required values",
-      "flags": {
-        "json": {
-          "description": "Print JSON output",
-          "name": "json",
-          "allowNo": false,
-          "type": "boolean"
-        }
-      },
-      "hasDynamicHelp": false,
-      "hiddenAliases": [],
-      "id": "config:validate",
-      "pluginAlias": "droppjs",
-      "pluginName": "droppjs",
-      "pluginType": "core",
-      "strict": true,
-      "enableJsonFlag": false,
-      "isESM": true,
-      "relativePath": [
-        "dist",
-        "cli",
-        "commands",
-        "config",
-        "validate.js"
-      ]
-    },
     "generate:adapter": {
       "aliases": [],
       "args": {
@@ -1516,6 +1270,252 @@
         "repository.js"
       ]
     },
+    "collections:add-media": {
+      "aliases": [],
+      "args": {
+        "collectionId": {
+          "description": "Collection id",
+          "name": "collectionId",
+          "required": true
+        },
+        "mediaId": {
+          "description": "Media id",
+          "name": "mediaId",
+          "required": true
+        }
+      },
+      "description": "Add a media item to a collection",
+      "flags": {
+        "json": {
+          "description": "Print JSON output",
+          "name": "json",
+          "allowNo": false,
+          "type": "boolean"
+        }
+      },
+      "hasDynamicHelp": false,
+      "hiddenAliases": [],
+      "id": "collections:add-media",
+      "pluginAlias": "droppjs",
+      "pluginName": "droppjs",
+      "pluginType": "core",
+      "strict": true,
+      "enableJsonFlag": false,
+      "isESM": true,
+      "relativePath": [
+        "dist",
+        "cli",
+        "commands",
+        "collections",
+        "add-media.js"
+      ]
+    },
+    "collections:create": {
+      "aliases": [],
+      "args": {
+        "name": {
+          "description": "Collection name",
+          "name": "name",
+          "required": true
+        }
+      },
+      "description": "Create a new media collection",
+      "flags": {
+        "description": {
+          "description": "Collection description",
+          "name": "description",
+          "hasDynamicHelp": false,
+          "multiple": false,
+          "type": "option"
+        },
+        "customProperties": {
+          "description": "JSON object for custom properties",
+          "name": "customProperties",
+          "hasDynamicHelp": false,
+          "multiple": false,
+          "type": "option"
+        },
+        "json": {
+          "description": "Print JSON output",
+          "name": "json",
+          "allowNo": false,
+          "type": "boolean"
+        }
+      },
+      "hasDynamicHelp": false,
+      "hiddenAliases": [],
+      "id": "collections:create",
+      "pluginAlias": "droppjs",
+      "pluginName": "droppjs",
+      "pluginType": "core",
+      "strict": true,
+      "enableJsonFlag": false,
+      "isESM": true,
+      "relativePath": [
+        "dist",
+        "cli",
+        "commands",
+        "collections",
+        "create.js"
+      ]
+    },
+    "collections:list": {
+      "aliases": [],
+      "args": {},
+      "description": "List all media collections",
+      "flags": {
+        "json": {
+          "description": "Print JSON output",
+          "name": "json",
+          "allowNo": false,
+          "type": "boolean"
+        }
+      },
+      "hasDynamicHelp": false,
+      "hiddenAliases": [],
+      "id": "collections:list",
+      "pluginAlias": "droppjs",
+      "pluginName": "droppjs",
+      "pluginType": "core",
+      "strict": true,
+      "enableJsonFlag": false,
+      "isESM": true,
+      "relativePath": [
+        "dist",
+        "cli",
+        "commands",
+        "collections",
+        "list.js"
+      ]
+    },
+    "collections:remove-media": {
+      "aliases": [],
+      "args": {
+        "collectionId": {
+          "description": "Collection id",
+          "name": "collectionId",
+          "required": true
+        },
+        "mediaId": {
+          "description": "Media id",
+          "name": "mediaId",
+          "required": true
+        }
+      },
+      "description": "Remove a media item from a collection",
+      "flags": {
+        "json": {
+          "description": "Print JSON output",
+          "name": "json",
+          "allowNo": false,
+          "type": "boolean"
+        }
+      },
+      "hasDynamicHelp": false,
+      "hiddenAliases": [],
+      "id": "collections:remove-media",
+      "pluginAlias": "droppjs",
+      "pluginName": "droppjs",
+      "pluginType": "core",
+      "strict": true,
+      "enableJsonFlag": false,
+      "isESM": true,
+      "relativePath": [
+        "dist",
+        "cli",
+        "commands",
+        "collections",
+        "remove-media.js"
+      ]
+    },
+    "config:init": {
+      "aliases": [],
+      "args": {},
+      "description": "Generate dropp.config.json in current project",
+      "flags": {
+        "force": {
+          "char": "f",
+          "description": "Overwrite existing dropp.config.json",
+          "name": "force",
+          "allowNo": false,
+          "type": "boolean"
+        }
+      },
+      "hasDynamicHelp": false,
+      "hiddenAliases": [],
+      "id": "config:init",
+      "pluginAlias": "droppjs",
+      "pluginName": "droppjs",
+      "pluginType": "core",
+      "strict": true,
+      "enableJsonFlag": false,
+      "isESM": true,
+      "relativePath": [
+        "dist",
+        "cli",
+        "commands",
+        "config",
+        "init.js"
+      ]
+    },
+    "config:show": {
+      "aliases": [],
+      "args": {},
+      "description": "Show the resolved Dropp configuration",
+      "flags": {
+        "json": {
+          "description": "Print JSON output",
+          "name": "json",
+          "allowNo": false,
+          "type": "boolean"
+        }
+      },
+      "hasDynamicHelp": false,
+      "hiddenAliases": [],
+      "id": "config:show",
+      "pluginAlias": "droppjs",
+      "pluginName": "droppjs",
+      "pluginType": "core",
+      "strict": true,
+      "enableJsonFlag": false,
+      "isESM": true,
+      "relativePath": [
+        "dist",
+        "cli",
+        "commands",
+        "config",
+        "show.js"
+      ]
+    },
+    "config:validate": {
+      "aliases": [],
+      "args": {},
+      "description": "Validate dropp.config.json schema and required values",
+      "flags": {
+        "json": {
+          "description": "Print JSON output",
+          "name": "json",
+          "allowNo": false,
+          "type": "boolean"
+        }
+      },
+      "hasDynamicHelp": false,
+      "hiddenAliases": [],
+      "id": "config:validate",
+      "pluginAlias": "droppjs",
+      "pluginName": "droppjs",
+      "pluginType": "core",
+      "strict": true,
+      "enableJsonFlag": false,
+      "isESM": true,
+      "relativePath": [
+        "dist",
+        "cli",
+        "commands",
+        "config",
+        "validate.js"
+      ]
+    },
     "plugin:install": {
       "aliases": [],
       "args": {
@@ -1736,5 +1736,5 @@
       ]
     }
   },
-  "version": "0.1.14"
+  "version": "0.2.0"
 }

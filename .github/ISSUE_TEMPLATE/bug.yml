@@ -1,0 +1,32 @@
+name: Bug report
+description: Something in droppjs or the CLI does not work
+labels: [bug]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what you got
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: droppjs version
+      placeholder: 0.2.0
+    validations:
+      required: true
+  - type: input
+    id: node
+    attributes:
+      label: Node.js version
+      placeholder: 20
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction
+      description: Commands, a short snippet, or a link
+    validations:
+      required: true

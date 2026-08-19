@@ -17,11 +17,11 @@ import {
   Dropp,
   JsonFileMediaRepository,
   LocalStorageDriver,
-  SharpTransformationDriver,
   DroppController,
   droppAttachMiddleware,
   droppErrorHandler,
 } from "droppjs";
+import { SharpTransformationDriver } from "droppjs/image";
 
 const app = express();
 app.use(express.json());

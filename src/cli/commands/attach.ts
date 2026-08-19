@@ -59,7 +59,7 @@ export default class Attach extends Command {
       ? (JSON.parse(flags.metadata) as Record<string, unknown>)
       : {};
 
-    const storage = createStorageDriver(config);
+    const storage = await createStorageDriver(config);
     const repository = await resolveRepository(config, process.cwd());
 
     const dropp = new Dropp({

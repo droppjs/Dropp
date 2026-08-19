@@ -9,7 +9,7 @@ new Dropp({
 });
 ```
 
-All of these classes are exported from `droppjs`. There is no extra package per adapter.
+Local disk and every repository class come from `droppjs`. Cloud storage, image/video transforms, and AI tagging are subpath exports. Install the matching SDK only when you use that backend.
 
 Generate instead of writing these by hand:
 
@@ -24,13 +24,13 @@ If you have not uploaded a file yet: [README](../README.md).
 
 ## 1. Storage: where the file goes
 
-| Class | Backend | Typical use |
+| Class | Import | Extra install |
 | --- | --- | --- |
-| `LocalStorageDriver` | Local disk | Local Next.js / Express |
-| `S3StorageDriver` | Amazon S3 | Production |
-| `R2StorageDriver` | Cloudflare R2 | Production, S3-compatible |
-| `AzureBlobStorageDriver` | Azure Blob | Azure shops |
-| `GCSStorageDriver` | Google Cloud Storage | GCP shops |
+| `LocalStorageDriver` | `droppjs` | none |
+| `S3StorageDriver` | `droppjs/s3` | `@aws-sdk/client-s3` |
+| `R2StorageDriver` | `droppjs/r2` | `@aws-sdk/client-s3` |
+| `AzureBlobStorageDriver` | `droppjs/azure` | `@azure/storage-blob` |
+| `GCSStorageDriver` | `droppjs/gcs` | `@google-cloud/storage` |
 
 ### Local
 
@@ -48,7 +48,7 @@ In Next.js, using `public/uploads` + `/uploads` means the file is immediately re
 ### S3
 
 ```ts
-import { S3StorageDriver } from "droppjs";
+import { S3StorageDriver } from "droppjs/s3";
 
 new S3StorageDriver({
   bucket: process.env.S3_BUCKET!,
@@ -62,7 +62,7 @@ Uses the default AWS SDK credential chain (`AWS_ACCESS_KEY_ID` / `AWS_SECRET_ACC
 ### R2
 
 ```ts
-import { R2StorageDriver } from "droppjs";
+import { R2StorageDriver } from "droppjs/r2";
 
 new R2StorageDriver({
   accountId: process.env.R2_ACCOUNT_ID!,
@@ -74,7 +74,8 @@ new R2StorageDriver({
 ### Azure / GCS
 
 ```ts
-import { AzureBlobStorageDriver, GCSStorageDriver } from "droppjs";
+import { AzureBlobStorageDriver } from "droppjs/azure";
+import { GCSStorageDriver } from "droppjs/gcs";
 
 new AzureBlobStorageDriver({
   connectionString: process.env.AZURE_STORAGE_CONNECTION_STRING!,
@@ -183,6 +184,9 @@ new Dropp({
 Production Next.js:
 
 ```ts
+import { Dropp, PrismaMediaRepository } from "droppjs";
+import { S3StorageDriver } from "droppjs/s3";
+
 new Dropp({
   repository: new PrismaMediaRepository(prisma),
   storage: new S3StorageDriver({

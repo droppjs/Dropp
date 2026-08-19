@@ -11,12 +11,12 @@ import {
   Dropp,
   JsonFileMediaRepository,
   LocalStorageDriver,
-  SharpTransformationDriver,
   PluginRegistry,
-  WatermarkPlugin,
-  AITaggingPlugin,
   SEOPlugin,
 } from "droppjs";
+import { SharpTransformationDriver } from "droppjs/image";
+import { WatermarkPlugin } from "droppjs/watermark";
+import { AITaggingPlugin } from "droppjs/ai-tagging";
 import path from "node:path";
 
 const dropp = new Dropp({

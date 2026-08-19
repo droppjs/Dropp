@@ -7,17 +7,8 @@ export {
   type PluginMetadata,
   type MediaPlugin as PluginMediaPlugin,
 } from "./plugins/core/index.js";
-export * from "./plugins/watermark/index.js";
 export * from "./plugins/seo/index.js";
-export * from "./plugins/ai-tagging/index.js";
 export * from "./storage/local/index.js";
-export * from "./storage/s3/index.js";
-export * from "./storage/r2/index.js";
-export * from "./storage/azure/index.js";
-export * from "./storage/gcs/index.js";
-export * from "./transformer/image/index.js";
-export * from "./transformer/video/index.js";
-export * from "./queue/bullmq/index.js";
 export * from "./db/prisma/index.js";
 export * from "./db/typeorm/index.js";
 export * from "./db/drizzle/index.js";

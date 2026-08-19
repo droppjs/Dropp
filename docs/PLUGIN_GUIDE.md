@@ -6,9 +6,9 @@ Plugins let you add behavior (watermark, SEO, tags) without editing Dropp.
 
 ## Built-in plugins
 
-- Watermark
-- AI Tagging
-- SEO
+- SEO: `import { SEOPlugin } from "droppjs"`
+- Watermark: `npm i sharp` then `import { WatermarkPlugin } from "droppjs/watermark"`
+- AI tagging: `npm i openai` then `import { AITaggingPlugin } from "droppjs/ai-tagging"`
 
 ## Manage plugins from CLI
 

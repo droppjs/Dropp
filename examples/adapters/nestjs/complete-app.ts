@@ -25,8 +25,8 @@ import {
   DroppService,
   JsonFileMediaRepository,
   LocalStorageDriver,
-  SharpTransformationDriver,
 } from "droppjs";
+import { SharpTransformationDriver } from "droppjs/image";
 
 const dropp = new Dropp({
   repository: new JsonFileMediaRepository(
